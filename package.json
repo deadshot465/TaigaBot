@@ -1,0 +1,21 @@
+{
+  "name": "taiga-bot",
+  "version": "0.0.0",
+  "description": "TaigaBot",
+  "main": "bot.js",
+  "author": {
+    "name": "Tetsuki Syu"
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.14",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+    "winston": "^3.2.1"
+  }
+}

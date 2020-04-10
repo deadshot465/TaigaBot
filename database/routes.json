@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Hiro Akiba",
+    "description": "As Keitaro's childhood friend and best friend, Hiro has growing affection for Keitaro. He tends to get jealous easily, but his cheerful personality and talent for cooking make up for it!",
+    "age": 19,
+    "birthday": "September 22",
+    "animal": "Raccoon",
+    "color": "#ff6600",
+    "emoteId": "514541939979452431"
+  },
+  {
+    "name": "Keitaro Nagame",
+    "description": "Keitaro is an energetic guy who loves to 'collect' memories through taking pictures. His playful and friendly nature makes him a natural crowdpleaser.",
+    "age": 19,
+    "birthday": "April 8",
+    "animal": "Frog",
+    "color": "#42a82b",
+    "emoteId": "514627809919107072"
+  },
+  {
+    "name": "Hunter Springfield",
+    "description": "Hunter has a shy and timid personality. He is always having a hard time socializing with others. It may look like that he prefers spending his time alone, but he just wants to have friends, just like everybody else.",
+    "age": 18,
+    "birthday": "March 20",
+    "animal": "Bunny",
+    "color": "#f7f63c",
+    "emoteId": "514543742167023625"
+  },
+  {
+    "name": "Natsumi Hamasaki",
+    "description": "Natsumi is seen as a role model among the campers due to his responsible and hardworking nature. However, he is pressured with the high expectations built around him.",
+    "age": 20,
+    "birthday": "June 20",
+    "animal": "Stag Beetle",
+    "color": "#1ab1ff",
+    "emoteId": "514542811937505301"
+  },
+  {
+    "name": "Yoichi Yukimura",
+    "description": "Yoichi heeds no authority and likes to bully others, giving him the reputation of a delinquent. No one understands the true reason behind his actions. Surprisingly, he has a soft heart when it comes to animals.",
+    "age": 20,
+    "birthday": "January 21",
+    "animal": "Wolf",
+    "color": "#b11aff",
+    "emoteId": "514543014979567617"
+  },
+  {
+    "name": "Taiga Akatora",
+    "description": "Taiga is a born leader, but unfortunately, he's using it to drag his friends into his schemes. He has an unreasonable hate towards Keitaro.",
+    "age": 19,
+    "birthday": "July 13",
+    "animal": "Tiger",
+    "color": "#e81615",
+    "emoteId": "514535865691930634"
+  }
+]

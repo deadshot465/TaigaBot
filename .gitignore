@@ -1,0 +1,11 @@
+.vs/
+bin/
+commands/*.js
+database/*.js
+node_modules/
+obj/
+objects/*.js
+bot.js
+helper.js
+server.js
+auth.json
