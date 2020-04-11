@@ -7,6 +7,7 @@ import { getRandomInt } from './helper';
 import { initializeCharacters, ENDINGS } from './objects/character';
 import getNextRoute from './commands/route';
 import getValentine from './commands/valentine';
+import TicTacToeGame from './commands/ticTacToe';
 
 logger.remove(logger.transports.Console);
 logger.add(new logger.transports.Console);
@@ -119,6 +120,11 @@ bot.on('message', (user, userID, channelID, message, evt) => {
                             }
                         }
                     });
+                }
+                break;
+            case 'tictactoe':
+                {
+                    let game = new TicTacToeGame(bot, user, userID, channelID);
                 }
                 break;
             default:
