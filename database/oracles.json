@@ -1,0 +1,68 @@
+[
+    {
+        "no": 1,
+        "fortune": "Excellent",
+        "meaning": "Excellent fortune, but watch yourself and don't be too proud.",
+        "content": "七宝浮図塔 (Like a tower full of treasure)\n高峰頂上安 (Feel safe and peaceful on the top)\n衆人皆仰望 (Everyone below is watching you)\n莫作等閑看 (Don't be too proud and don't belittle them)"
+    },
+    {
+        "no": 2,
+        "fortune": "Bad",
+        "meaning": "The path ahead is too dark to see clear. Wait for the right moment.",
+        "content": "月被浮雲翳 (The moon is dimmed by the clouds)\n立事自昏迷 (You've decided something but you lose your own pace)\n幸乞陰公祐 (You pray to the moon, hoping things will become better)\n何慮不開眉 (But the moon doesn't show its bright face, like it's concerned about something)"
+    },
+    {
+        "no": 3,
+        "fortune": "Bad",
+        "meaning": "Don't give up yourself. Wait for the right moment.",
+        "content": "愁悩損忠良 (Your heart is clouded by worry and anxiety)\n青霄一烓香 (You burn an incense to the sky, but it doesn't help)\n雖然防小過 (But don't be too sad. Watch out for small mistakes around you)\n閑慮覚時長 (Remember the time during which you're pondering, and wait for the right moment)"
+    },
+    {
+        "no": 4,
+        "fortune": "Very Good",
+        "meaning": "Possibility of success.",
+        "content": "累有興雲志 (Your chest is full of ambitions)\n君恩禄未封 (But the king still doesn't grant you anything)\n若逢侯手印 (If you happen to meet someone with esteem and prestige)\n好事始悤悤 (Good things will ensue)"
+    },
+    {
+        "no": 5,
+        "fortune": "Bad",
+        "meaning": "The difficulties keep appearing.",
+        "content": "家道未能昌 (You family is not good and safe)\n危危保禍殃 (It's full of danger and disaster)\n暗雲侵月桂 (The dark clouds invade the moon)\n佳人一烓香 (You can only see the beauty of the moon during the transient time of an incense)"
+    },
+    {
+        "no": 6,
+        "fortune": "Fine",
+        "meaning": "Pray to the god and the buddha, then you shall return to the path of human.",
+        "content": "宅暮鬼凶多 (Ghosts and monsters sneak around you)\n人事有爻訛 (The things you did is mixed with both truth and lie)\n傷財防損失 (Make sure to protect your belongings and fortune)\n祈福始中和 (Pray to the god and the buddha, then they shall lead to back to the track of honest and peace)"
+    },
+    {
+        "no": 7,
+        "fortune": "Bad",
+        "meaning": "Whatever you do, there are always obstacles.",
+        "content": "登舟待便風 (You board the ship and wait for the wind)\n月色暗朦朧 (But the moon suddenly becomes dim and dark)\n欲碾香輪去 (You decide to drive the car instead)\n高山千万重 (But only high mountains await you)"
+    },
+    {
+        "no": 8,
+        "fortune": "Excellent",
+        "meaning": "Even if you have a rough start, you'll succeed.",
+        "content": "勿頭中見尾 (You can't see the tail from the top of head)\n文華須得理 (You skills and abilities will appear one by one)\n禾刀自偶然 (You'll have a big harvest even though you didn't expect it)\n当遇非常喜 (Things will eventually turn out as you think, and you will be extremely happy)"
+    },
+    {
+        "no": 9,
+        "fortune": "Excellent",
+        "meaning": "Every dream you hope for will come true",
+        "content": "有名須得遇 (You'll get famous and everyone will know about you)\n三望一朝遷 (All your dreams and hopes will come true all at once)\n貴人来指処 (Some elder or respected people will help you and direct you to the right direction)\n華果応時鮮 (You will get fame and profits at the same time)"
+    },
+    {
+        "no": 10,
+        "fortune": "Very Good",
+        "meaning": "Think it the other way, and things will be fine.",
+        "content": "旧用多成破 (Even if you don't change anything and live as usual, gradually there will be more and more problems)\n新更始見財 (Revise and rethink, stabilize your finance)\n改求雲外望 (If you do so and pray to the other side of clouds)\n枯木遇春開 (Even a withered wood will blossom)"
+    },
+    {
+        "no": 11,
+        "fortune": "Excellent",
+        "meaning": "You'll succeed like an arrow being shot toward the sky.",
+        "content": "有禄興家業 (You get a fortune and your family will prosper)\n文華達帝都 (And your talent is so famous that even people in the capital know it)\n雲中乗好箭 (You luck is just like an arrow being shot toward the sky)\n兼得貴人扶 (And you will even get help from elder or respected people)"
+    }
+]

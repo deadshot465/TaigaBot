@@ -8,6 +8,7 @@ import { initializeCharacters, ENDINGS } from './objects/character';
 import getNextRoute from './commands/route';
 import getValentine from './commands/valentine';
 import TicTacToeGame from './commands/ticTacToe';
+import { getOracle, Oracle } from './commands/oracle';
 
 logger.remove(logger.transports.Console);
 logger.add(new logger.transports.Console);
@@ -125,6 +126,15 @@ bot.on('message', (user, userID, channelID, message, evt) => {
             case 'tictactoe':
                 {
                     let game = new TicTacToeGame(bot, user, userID, channelID);
+                }
+                break;
+            case 'oracle':
+                {
+                    let oracle = getOracle();
+                    bot.sendMessage({
+                        to: channelID,
+                        message: `**Oracle No:** ${oracle.No}\n**Fortune:** ${oracle.Fortune}\n**Summary:** ${oracle.Meaning}\n**Details:**\n *${oracle.Content}*`
+                    });
                 }
                 break;
             default:
