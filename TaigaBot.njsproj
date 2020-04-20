@@ -32,9 +32,11 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="server.ts" />
+    <Content Include=".env" />
     <Content Include="auth.json">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="database\oracles.json" />
     <Content Include="database\routes.json" />
     <Content Include="database\valentines.json" />
     <Content Include="tsconfig.json" />
@@ -45,18 +47,21 @@
     <TypeScriptCompile Include="bot.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="commands\base\command.ts" />
     <TypeScriptCompile Include="commands\convert.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="commands\enlarge.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="commands\lookupTables.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="commands\oracle.ts" />
     <TypeScriptCompile Include="commands\route.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="commands\ticTacToe.ts">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
+    <TypeScriptCompile Include="commands\ticTacToe.ts" />
     <TypeScriptCompile Include="commands\valentine.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -66,14 +71,16 @@
     <TypeScriptCompile Include="helper.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="objects\character.ts">
+    <TypeScriptCompile Include="interfaces\ICharacterRouter.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="interfaces\ICommand.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="commands\" />
+    <Folder Include="commands\base\" />
     <Folder Include="database\" />
-    <Folder Include="objects\" />
+    <Folder Include="interfaces\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
   <ProjectExtensions>

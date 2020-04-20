@@ -1,4 +1,4 @@
-import * as Discord from 'discord.io';
+import * as Discord from 'discord.js';
 import * as fs from 'fs';
 import { getHorizontalLines } from '../helper';
 
@@ -76,10 +76,10 @@ class TicTacToeGame {
             `\nYou want to continue the game?\n`;
         msg += getHorizontalLines(20);
 
-        client.sendMessage({
-            to: channelID,
-            message: msg
-        });
+        //client.sendMessage({
+        //    to: channelID,
+        //    message: msg
+        //});
 
         this.runGame(client, user, userID, channelID, firstTimePlay);
     }
@@ -88,10 +88,10 @@ class TicTacToeGame {
 
         let msg = this.drawBoard();
 
-        client.sendMessage({
-            to: channelID,
-            message: msg
-        });
+        //client.sendMessage({
+        //    to: channelID,
+        //    message: msg
+        //});
 
         this.endGame();
     }

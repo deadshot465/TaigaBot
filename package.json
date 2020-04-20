@@ -11,11 +11,14 @@
     "clean": "tsc --build --clean"
   },
   "devDependencies": {
-    "@types/node": "^8.0.14",
+    "@types/node": "^13.13.0",
     "typescript": "^3.2.2"
   },
   "dependencies": {
-    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+    "@discordjs/opus": "^0.1.0",
+    "axios": "^0.19.2",
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
     "winston": "^3.2.1"
   }
 }

@@ -120,6 +120,180 @@
         "content": "月出漸分明 (The moon comes out and brightens in the sky)\n家財毎毎興 (Your family is becoming wealthy and prosperous)\n何言先有満 (But why do you feel satisfied with everything you got right now)\n更変立功名 (Work harder and strive for better, your luck will become even better)"
     },
     {
+        "no": 21,
+        "fortune": "Great",
+        "meaning": "Give up old ways of thinking, then you'll be good.",
+        "content": "洗出経年否 (All the bad and dirty things in the past are washed away)\n光華得再清 (Things then become clean and shining again)\n所求終吉利 (What you have wished will finally come true)\n重日照前程 (With the sun shining on your future)"
+    },
+    {
+        "no": 22,
+        "fortune": "Great",
+        "meaning": "Troublesome things will disappear, and you will succeed.",
+        "content": "漸漸濃雲散 (Clouds slowly move away)\n看看月再明 (The moon comes out shining brightly on the sky)\n逢春花草秀 (It's just like grass and flowers flourish in the spring)\n雨過竹重青 (When the rain ends, bamboos become even greener)"
+    },
+    {
+        "no": 23,
+        "fortune": "Good",
+        "meaning": "Your are too avaricious and your greeed might be too excessive.",
+        "content": "紅雲随歩起 (Red clouds of good luck rises with your footsteps)\n一箭中青霄 (An arrow is shot toward the sky)\n鹿行千里遠 (With that good omen, you feel confident and trace the deer from thousands of miles away)\n争知去路遙 (But not only you fail to catch the deer, but also you realize you've come too far that you already lose your way back)"
+    },
+    {
+        "no": 24,
+        "fortune": "Bad",
+        "meaning": "Beware of women's sweet and honey words.",
+        "content": "三女莫相逢 (Stay away from lewd and evil women)\n盟言説未通 (Even if those words are full of honey and sweetness, they are not honest and true)\n門裡心肝掛 (If you feel jealous or are confused by those words)\n縞素子重重 (You will bring catastrophe to yourself)"
+    },
+    {
+        "no": 25,
+        "fortune": "Great",
+        "meaning": "Good luck will visit you.",
+        "content": "枯木逢春生 (Dead trees become alive again when spring comes)\n前途必利亨 (Your future will be favorable and prosperous)\n亦得佳人箭 (You'll receive helps from elder or honorable people)\n乗車禄自行 (Fortune and wealth will naturally become yours)"
+    },
+    {
+        "no": 26,
+        "fortune": "Bad",
+        "meaning": "Even though you already have fame, your carelessness will lead you to failure in the end.",
+        "content": "将軍有異声 (A general is a person who has lots of fame)\n進兵万里程 (He leads the soldiers to a extremely far place for war)\n争知臨敵処 (But the enemies are far stronger than expected)\n道勝却虚名 (And even though he wins the battle, his fame is totally destroyed by fake reports and mean rumors)"
+    },
+    {
+        "no": 27,
+        "fortune": "Great",
+        "meaning": "Good luck will come like a moon revealing itself from the clouds.",
+        "content": "望禄応重山 (If you wish for the wealth, you will get plenty of it just like you hoped)\n花紅喜悦顔 (The flower is also blossoming in red, as if it were showing you its happy face)\n挙頭看皎月 (You raise your head, hopeing to see the moon)\n漸出黒雲間 (And the moon reveals itself from the dark clouds)"
+    },
+    {
+        "no": 28,
+        "fortune": "Bad",
+        "meaning": "Don't take a shortcut just because you're in a hurry.",
+        "content": "意速無船渡 (You feel anxious and want to cross the river, but there's no boat)\n波深必悞身 (The wave is deep, and if you swim, you'll drown yourself)\n切須回旧路 (Do not take a shortcut. You should go back to the original path)\n方可免災迍 (Only by doing so will you escape from the disaster)"
+    },
+    {
+        "no": 29,
+        "fortune": "Great",
+        "meaning": "Your worries will disappear, and you will meet a nice senior.",
+        "content": "憂轗漸消融 (The difficulties that stopped you will gradually disappear)\n求名得再通 (You will also gradually take back your fame and honor)\n宝財臨禄位 (You will get the wealth, position and place you deserve)\n当遇主人公 (And you will meet a senior that will lead you to success)"
+    },
+    {
+        "no": 30,
+        "fortune": "Bad",
+        "meaning": "The stake that sticks up gets hammered down.",
+        "content": "仙鶴立高枝 (Your beauty and skills make you stand out in the crowd)\n防他暗箭虧 (And because of this, jealous people will try to shoot you in the dark)\n井畔剛刀利 (There are people who stand next to the tree, close to the hole and who hold the knife, waiting for the chance to hurt you)\n戸内更防危 (And not only from outside, you should beware of threats that come from your family as well)"
+    },
+    {
+        "no": 31,
+        "fortune": "Fine",
+        "meaning": "Wait for the right moment, and you'll succeed.",
+        "content": "鯤鯨未変時 (The fish in the legends still hasn't transformed yet)\n且守碧潭淇 (Stay in the deep water, gathering all your strength, and wait for the right moment)\n風雲興巨浪 (When it arrives as the wind and clouds rise with huge waves)\n一息過天池 (You'll fly through the heaven and reach your destination at once)"
+    },
+    {
+        "no": 32,
+        "fortune": "Fine",
+        "meaning": "If you manage to find someone who appreciates your skills and abilities, you'll succeed.",
+        "content": "似玉蔵深石 (The jade is hidden inside a raw stone)\n休将故眼看 (Commoners will not notice the shine of it)\n一朝良匠別 (But if there are skillful experts who would immediately recognize it)\n方見宝光寒 (The treasure that lies deeply inside stones will finally be found out)"
+    },
+    {
+        "no": 33,
+        "fortune": "Great",
+        "meaning": "You'll receive helps from elder or senior people and go even further.",
+        "content": "枯木逢春艶 (Withered trees bloom when spring arrives)\n芳菲再発林 (The scent of grasses and flowers fill up the woods)\n雲間方見月 (The moon reveals itself from the fading clouds)\n前遇貴人欽 (You will also meet senior people that will bring you happiness and good luck)"
+    },
+    {
+        "no": 34,
+        "fortune": "Excellent",
+        "meaning": "You'll get tremendous success like you manage to catch a big fish.",
+        "content": "臘木春将至 (Tree seedlings grow when spring comes)\n芳菲喜再新 (A season full of pleasant scents of flowers finally arrives again)\n鯤鯨興巨浪 (The fish in the legends advents with huge waves)\n挙鈎禄為真 (If you raise the fishing rod, you'll get something phenomenal)"
+    },
+    {
+        "no": 35,
+        "fortune": "Great",
+        "meaning": "You'll succeed because of helps from others.",
+        "content": "射鹿須乗箭 (In order to strive for wealth, you need arrows)\n胡僧引路帰 (In that case, foreign and exotic monks will kindly provide you directions)\n遇道同仙籍 (On your way to the destination, you'll also meet people who are alike)\n光華映晩暉 (Your wealth and fortune will shine like the light of sunset)"
+    },
+    {
+        "no": 36,
+        "fortune": "Fine",
+        "meaning": "When the situation worsens to the ultimate limit, everything will eventually recover.",
+        "content": "先損後有益 (Loss until it reaches the ultimate limit, then there will be profits)\n如月之剝蝕 (Just like how the moon eclipses and becomes full again through every cycle)\n玉兎待重生 (Wait for the next full moon)\n光華当満室 (Then your house will be full of shininess and success)"
+    },
+    {
+        "no": 37,
+        "fortune": "Fine",
+        "meaning": "Things look bad in the very beginning, but good luck will come before you even realize.",
+        "content": "陰靉未能通 (Dark clouds cover up the sky and hide the ligt of sun)\n求名亦未逢 (You strive for fame and wealth, but you fail)\n幸然須有変 (But before you even realize, good luck has already approached)\n一箭中双鴻 (Eventually you'll shoot two birds with only a single stone)"
+    },
+    {
+        "no": 38,
+        "fortune": "Good",
+        "meaning": "Your luck worsens as the clouds hide the moon.",
+        "content": "月照天書静 (The moon brighten the sky silently)\n雲生霧彩霞 (But as the clouds and mist grow, the light of moon is dimmed)\n久想離庭客 (Facing such difficulties, you couldn't help but think of your families and friends)\n無事惹咨嗟 (Nothing really happens, but you sigh nonetheless)"
+    },
+    {
+        "no": 39,
+        "fortune": "Bad",
+        "meaning": "Beware of fire accidents and bankruptcy.",
+        "content": "望用方心腹 (You watch your hometown from a distance place)\n家郷被火災 (Only to find that the hometown is on fire)\n憂危三五度 (Such disasters happen from time to time)\n由損断頭材 (And it causes you to lose your fortune and wealth)"
+    },
+    {
+        "no": 40,
+        "fortune": "Fine",
+        "meaning": "He who touches pitch shall be defiled therewith; one rotten apple spoils the barrel.",
+        "content": "中正方成道 (Only the righteous who walk on a right path will succeed)\n姦邪恐惹愆 (But even so, such people and way of living will often get obstructed by villains and led to failures)\n壺中盛妙薬 (Simmer a pot of medicine with care)\n非久去煩煎 (Even though it's painstaking and bitter, it shall erase your troubles and problems)"
+    },
+    {
+        "no": 81,
+        "fortune": "Great",
+        "meaning": "Change the way you're doing things so far, and you'll be fine.",
+        "content": "道合須成合 (When working on something, you have to coordinate with others)\n先憂事更多 (Things are not good at first)\n所求財宝盛 (But so long as you don't give up, eventually you'll become wealthy and happy)\n更変得中和 (Change your way of doing things further and continue coordinating with others, things will become even better)"
+    },
+    {
+        "no": 82,
+        "fortune": "Bad",
+        "meaning": "You will not be able to escape from your failures in the past.",
+        "content": "火発応連天 (Severe fire accident happens as the flame reaches the sky)\n新愁惹旧◯ (And the root cause of this fire was sown in the past)\n欲求千里外 (You move farther, hoping to flee from the disaster)\n要渡更無船 (Unfortunately there's no ship at all)"
+    },
+    {
+        "no": 83,
+        "fortune": "Bad",
+        "meaning": "If you wish for something you don't deserve, you will bring disasters to yourself.",
+        "content": "挙歩出雲端 (You step out from the top of the clouds)\n高枝未可攀 (But you fail to strip the legendary laurel flower with your hands)\n昻頭看皎月 (You raise your head, wondering what happened to the moon)\n猶在黒雲間 (Only to find out that the moon is still in the darkness)"
+    },
+    {
+        "no": 84,
+        "fortune": "Bad",
+        "meaning": "Things never become better, and there seems to be always new discord and troubles.",
+        "content": "否極方無泰 (Even though things are already in their worst, there's no sign of improvement)\n花開値晩秋 (Autumn already comes even though the flowers of spring only blossomed not long ago)\n人情不調備 (Hearts of people are full of discord and arguments as well)\n財宝鬼来偸 (Even the wealth of your family got stolen by monsters and phantoms)"
+    },
+    {
+        "no": 85,
+        "fortune": "Excellent",
+        "meaning": "Great talents mature late.",
+        "content": "望用何愁晩 (Although things you hope seem to come late, you don't have to worry)\n求名漸得寧 (Everything you hope for will come true in the long run)\n雲梯終有望 (The bridge to the heaven that leads to where gods live is already open)\n帰路入蓬瀛 (You will visit the paradise and acquire immortality and eternal happiness)"
+    },
+    {
+        "no": 86,
+        "fortune": "Excellent",
+        "meaning": "An omen of great success.",
+        "content": "花発応陽台 (Flowers blossom on the balcony of happiness)\n車行進宝財 (Cars and wagons full of wealth and fortune come one after one)\n執文朝帝殿 (Once you receive the order from the seniors and embark on your journey)\n走馬听声雷 (The accolades will be loud like thunder as you ride on the horse)"
+    },
+    {
+        "no": 87,
+        "fortune": "Great",
+        "meaning": "You'll succeed, but beware of indecision and inconsistencies.",
+        "content": "鑿石方逢玉 (You dig out the jade from the stone)\n淘沙始見金 (You see the gold as you wash off the sands)\n青霄終有路 (The sky is open, the path to success is shown)\n只恐不堅心 (The only fear is your indecision)"
+    },
+    {
+        "no": 88,
+        "fortune": "Bad",
+        "meaning": "An omen of discord inside your family.",
+        "content": "作事不和同 (Whenever and whatever you do, your family just can't reach a consensus)\n臨危更生凶 (The perilous situation is looming, only jeopardizing things even further)\n佳人生苦恨 (Even your love grows a hatred and discontent)\n閑慮両三重 (These troublesome difficulties appear one after another)"
+    },
+    {
+        "no": 89,
+        "fortune": "Excellent",
+        "meaning": "Someone will recognize your expertise and skills, leading you to success.",
+        "content": "一片無瑕玉 (A piece of jade free from any damages hides in the stone)\n従今好琢磨 (From now on, it's the best time to hone and polish it)\n得遇高人識 (Someone knowledgeable and wise will finally recognize your skills)\n方逢喜気多 (And leads to tremendous happiness)"
+    },
+    {
         "no": 90,
         "fortune": "Great",
         "meaning": "You'll succeed as some elder or honorable people guide you.",
