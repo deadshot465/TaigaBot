@@ -76,7 +76,7 @@
     <TypeScriptCompile Include="commands\valentine.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="storage\dumpStorage.ts">
+    <TypeScriptCompile Include="storage\reactions.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="utility\helper.ts">

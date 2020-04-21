@@ -2,6 +2,8 @@ import * as Discord from 'discord.js';
 import * as DotEnv from 'dotenv';
 import { readdirSync } from 'fs';
 import Command from './commands/base/command';
+import { FAILED_MESSAGES, GREETINGS, RANDOM_RESPONSES } from './storage/reactions';
+import { getRandomInt } from './utility/helper';
 
 // Configures the environment variables
 DotEnv.config();
@@ -77,9 +79,39 @@ taiga.once('ready', () => {
     presenceFn();
 });
 
+taiga.on('guildMemberAdd', member => {
+    const generalChannelIds = [process.env.GENCHN, process.env.TESTGENCHN];
+    for (const id of generalChannelIds) {
+        if (!id) continue;
+
+        const channel = member.guild.channels.resolve(id);
+        if (!channel) continue;
+
+        const msg = GREETINGS[getRandomInt(0, GREETINGS.length)]
+            .replace('{name}', member.displayName || member.user!.username);
+
+        (<Discord.TextChannel>channel).send(msg);
+    }
+});
+
 taiga.on('message', async message => {
     if (message.author.bot || !message.guild) return;
+
+    // Randomly reply a message
+    const chance = parseInt(process.env.RDMCHANCE!);
+    const hitMiss = getRandomInt(0, 100) < chance;
+    if (hitMiss) {
+        const response = RANDOM_RESPONSES[getRandomInt(0, RANDOM_RESPONSES.length)];
+        message.channel.send(response);
+    }
+
     if (!message.content.startsWith(PREFIX)) return;
+    if (((process.env.BOTCHN && process.env.BOTMODCHN) &&
+        (message.channel.id != process.env.BOTCHN &&
+        message.channel.id != process.env.BOTMODCHN)) &&
+        (process.env.TESTCHN && message.channel.id != process.env.TESTCHN)) {
+        return;
+    }
 
     // Get the command name. or return
     const args = message.content
@@ -95,6 +127,13 @@ taiga.on('message', async message => {
 
     if (!command && ALIASES.has(cmd)) {
         command = COMMANDS.get(ALIASES.get(cmd)!);
+    }
+
+    // If we still didn't find a command, fail the command and return.
+    if (!command) {
+        const msg = FAILED_MESSAGES[getRandomInt(0, FAILED_MESSAGES.length)];
+        message.channel.send(msg);
+        return;
     }
 
     // Add the command to the cooldown
