@@ -58,6 +58,7 @@ export default class Dialog extends Command {
 
         if (args.length < 0) {
             channel.send('At least give me something to send, you dumbass.');
+            return;
         }
 
         // Gets the message by getting the rest of the args
