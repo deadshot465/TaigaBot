@@ -88,7 +88,7 @@ taiga.on('guildMemberAdd', member => {
         if (!channel) continue;
 
         const msg = GREETINGS[getRandomInt(0, GREETINGS.length)]
-            .replace('{name}', '@' + member.displayName || member.user!.username);
+            .replace('{name}', `<@${member.id || member.user!.id}>`);
 
         (<Discord.TextChannel>channel).send(msg);
     }
