@@ -1,4 +1,4 @@
-import * as Discord from 'discord.js';
+﻿import * as Discord from 'discord.js';
 import Command from './base/command';
 
 export default class Info extends Command {
@@ -17,7 +17,7 @@ export default class Info extends Command {
                 `It was inspired by dunste123#0129's Hiro. \n` +
                 `Join Yuuto's dev team and start developing on the [project website](http://iamdeja.github.io/yuuto-docs/). \n\n` +
                 `Yuuto version 1.0 was made and developed by: \n` +
-                `**Arch#0226**, **D?-J?-Vu#1004**, **dunste123#0129**, **zsotroav#8941** \n` +
+                `**Arch#0226**, **Dé-Jà-Vu#1004**, **dunste123#0129**, **zsotroav#8941** \n` +
                 `Taiga version 1.0 and Yuuto's TypeScript version ported by: \n**Chehui Chou#1250** \n` +
                 `Japanese oracle co-translated with: \n**Kirito#9286** \n` +
                 `Taiga reactions and feedback shared by: \n` +
