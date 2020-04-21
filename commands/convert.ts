@@ -1,10 +1,10 @@
 import * as Discord from 'discord.js';
 import { format } from 'util';
 import { PREFIX } from '../bot';
+import { CVT_PATTERN } from '../utility/patterns';
 import Command from './base/command';
 import { LOOKUP_LENGTH, LOOKUP_TEMPERATURE } from './lookupTables';
 
-const REGEX = /(-?[0-9.]+)(\D{1,2})/;
 const LENGTHS = ['km', 'm', 'cm', 'in', 'ft', 'mi', 'au'];
 const TEMPS = ['c', 'f', 'k'];
 const VALID_UNITS = [...TEMPS, ...LENGTHS];
@@ -51,7 +51,7 @@ The syntax is \`${PREFIX}cvt <unit-to-convert-to> <value>\``.trim())
 
         const input = args[1].toLowerCase();
 
-        if (!REGEX.test(input)) {
+        if (!CVT_PATTERN.test(input)) {
             channel.send(`<:TaigaUneasy2:700006812673638500> Not sure what you mean by \`${input}\`.`)
                 .then(m => m.delete(deleteOps));
             return;
@@ -61,7 +61,7 @@ The syntax is \`${PREFIX}cvt <unit-to-convert-to> <value>\``.trim())
     }
 
     private convert(targetUnit: string, input: string) {
-        const [, sourceValue, sourceUnit] = REGEX.exec(input)!;
+        const [, sourceValue, sourceUnit] = CVT_PATTERN.exec(input)!;
 
         if (!this.areCompatible(targetUnit, sourceUnit)) {
             return `<:TaigaAck2:700006264507465778> That's not possible, you dummy.`;

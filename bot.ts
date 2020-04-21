@@ -23,9 +23,9 @@ const taiga = new Discord.Client({
     fetchAllMembers: true
 });
 
-const commands = new Discord.Collection<string, Command>();
-const alias = new Discord.Collection<string, string>();
-const cooldowns = new Discord.Collection<string, Discord.Collection<string, number>>();
+export const COMMANDS = new Discord.Collection<string, Command>();
+export const ALIASES = new Discord.Collection<string, string>();
+export const COOLDOWNS = new Discord.Collection<string, Discord.Collection<string, number>>();
 
 (async () => {
     // Load command files
@@ -44,10 +44,10 @@ const cooldowns = new Discord.Collection<string, Discord.Collection<string, numb
         }
 
         const command: Command = new ctor();
-        commands.set(command.Name, command);
+        COMMANDS.set(command.Name, command);
 
         if (command.Alias) {
-            command.Alias.forEach(_alias => alias.set(_alias, command.Name));
+            command.Alias.forEach(_alias => ALIASES.set(_alias, command.Name));
         }
     }
 
@@ -91,20 +91,20 @@ taiga.on('message', async message => {
     if (!cmd) return;
 
     // Find command or alias
-    let command = commands.get(cmd);
+    let command = COMMANDS.get(cmd);
 
-    if (!command && alias.has(cmd)) {
-        command = commands.get(alias.get(cmd)!);
+    if (!command && ALIASES.has(cmd)) {
+        command = COMMANDS.get(ALIASES.get(cmd)!);
     }
 
     // Add the command to the cooldown
-    if (!cooldowns.has(command!.Name)) {
-        cooldowns.set(command!.Name, new Discord.Collection<string, number>());
+    if (!COOLDOWNS.has(command!.Name)) {
+        COOLDOWNS.set(command!.Name, new Discord.Collection<string, number>());
     }
 
     // Set the cooldown's timestamp
     const now = Date.now();
-    const timestamps = cooldowns.get(command!.Name)!;
+    const timestamps = COOLDOWNS.get(command!.Name)!;
     const cooldownAmount = (command!.Cooldown || 3) * 1000;
 
     // Check if the user is on cooldown
@@ -134,126 +134,3 @@ taiga.on('message', async message => {
 });
 
 taiga.login(process.env.TOKEN).catch(console.error);
-
-//initializeCharacters();
-
-//bot.on('message', (user, userID, channelID, message, evt) => {
-//    if (message.substring(0, 1) == '>') {
-//        let args = message.substring(1).split(/\s+/g);
-//        let cmd = args[0];
-
-//        args = args.splice(1);
-
-//        switch (cmd) {
-//            case 'ping':
-//                bot.sendMessage({
-//                    to: channelID,
-//                    message: 'Pong!'
-//                });
-//                break;
-//            case 'cvt':
-//                {
-//                    let result = convert(args[0], args[1]);
-//                    bot.sendMessage({
-//                        to: channelID,
-//                        message: result
-//                    });
-                    
-//                }
-//                break;
-//            case 'route':
-//                {
-//                    let character = getNextRoute();
-
-//                    bot.sendMessage({
-//                        to: channelID,
-//                        embed: {
-//                            thumbnail: {
-//                                url: character.getEmojiUrlGif()
-//                            },
-//                            color: character.getColor(),
-//                            title: `Next: ${character.getName()}, ${ENDINGS[getRandomInt(0, ENDINGS.length)]} Ending`,
-//                            description: character.getDescription(),
-//                            fields: [
-//                                {
-//                                    name: 'Age', value: character.getAge().toString(), inline: true
-//                                },
-//                                {
-//                                    name: 'Birthday', value: character.getBirthday(), inline: true
-//                                },
-//                                {
-//                                    name: 'Animal Motif', value: character.getAnimal(), inline: true
-//                                }
-//                            ],
-//                            footer: {
-//                                text: `Play ${character.getFirstName()}'s route next. All bois are best bois.`
-//                            }
-//                        }
-//                    });
-//                }
-//                break;
-//            case 'valentine':
-//                {
-//                    let valentine = getValentine();
-//                    let isKeitaro = valentine.getFirstName() === 'Keitaro';
-//                    let prefixSuffix = isKeitaro ? "~~" : "";
-
-//                    bot.sendMessage({
-//                        to: channelID,
-//                        message: !isKeitaro ? "" : "**Bah, we're already dating and I'm the best. No chance for you, loser.**",
-//                        embed: {
-//                            thumbnail: {
-//                                url: valentine.getEmojiUrlPng()
-//                            },
-//                            color: valentine.getColor(),
-//                            title: `${prefixSuffix}Your valentine is ${valentine.getName()}${prefixSuffix}`,
-//                            description: `${prefixSuffix}${valentine.getDescription()}${prefixSuffix}`,
-//                            fields: [
-//                                {
-//                                    name: 'Age',
-//                                    value: `${prefixSuffix}${valentine.getAge().toString()}${prefixSuffix}`,
-//                                    inline: true
-//                                },
-//                                {
-//                                    name: 'Birthday',
-//                                    value: `${prefixSuffix}${valentine.getBirthday()}${prefixSuffix}`,
-//                                    inline: true
-//                                },
-//                                {
-//                                    name: 'Animal Motif',
-//                                    value: `${prefixSuffix}${valentine.getAnimal()}${prefixSuffix}`,
-//                                    inline: true
-//                                }
-//                            ],
-//                            footer: {
-//                                text: !isKeitaro ?
-//                                    `Don't fret if ${valentine.getFirstName()} isn't your type. Who knows, maybe it's time for a new favorite.` :
-//                                    `See? Told you Keitaro is my boyfriend. Later loser.`
-//                            }
-//                        }
-//                    });
-//                }
-//                break;
-//            case 'tictactoe':
-//                {
-//                    let game = new TicTacToeGame(bot, user, userID, channelID);
-//                }
-//                break;
-//            case 'oracle':
-//                {
-//                    let oracle = getOracle();
-//                    bot.sendMessage({
-//                        to: channelID,
-//                        message: `**Oracle No:** ${oracle.No}\n**Fortune:** ${oracle.Fortune}\n**Summary:** ${oracle.Meaning}\n**Details:**\n *${oracle.Content}*`
-//                    });
-//                }
-//                break;
-//            default:
-//                bot.sendMessage({
-//                    to: channelID,
-//                    message: TAIGA_MESSAGES[getRandomInt(0, TAIGA_MESSAGES.length)]
-//                });
-//                break;
-//        }
-//    }
-//});

@@ -10,3 +10,4 @@ helper.js
 server.js
 auth.json
 .env
+interfaces/*.js

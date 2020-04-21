@@ -1,8 +1,6 @@
-import * as Discord from 'discord.js'
+import * as Discord from 'discord.js';
+import { EMOTE_ID_REGEX, EMOTE_IS_ANIMATED_REGEX } from '../utility/patterns';
 import Command from './base/command';
-
-const EMOTE_ID_REGEX = /[^:]+(?=>)/;
-const EMOTE_IS_ANIMATED_REGEX = /(<a)/;
 
 export default class Enlarge extends Command {
     constructor() {

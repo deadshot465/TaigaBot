@@ -1,6 +1,6 @@
 import * as Discord from 'discord.js';
-import * as valentines from '../database/valentines.json';
-import { getRandomInt } from "../helper";
+import * as valentines from '../storage/valentines.json';
+import { getRandomInt } from "../utility/helper";
 import ICharacterRouter from '../interfaces/ICharacterRouter';
 import Command from './base/command';
 

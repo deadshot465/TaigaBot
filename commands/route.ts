@@ -1,6 +1,6 @@
 import * as Discord from 'discord.js';
-import * as routes from '../database/routes.json';
-import { getRandomInt } from '../helper';
+import * as routes from '../storage/routes.json';
+import { getRandomInt } from '../utility/helper';
 import ICharacterRouter from '../interfaces/ICharacterRouter';
 import Command from './base/command';
 

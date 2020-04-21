@@ -1,13 +1,13 @@
 import * as Discord from 'discord.js';
-import * as oracles from '../database/oracles.json';
-import { getRandomInt } from '../helper';
+import * as oracles from '../storage/oracles.json';
+import { getRandomInt } from '../utility/helper';
 import Command from './base/command';
 
 const thumbnailUrl = `https://cdn.discordapp.com/emojis/701918026164994049.png?v=1`;
 
 export default class Oracle extends Command {
     constructor() {
-        super('oracle', 'info', 'Draw an oracle and know know future of something on your mind',
+        super('oracle', 'info', 'Draw an oracle and know the future of something on your mind',
             `Run \`oracle\` to draw an oracle and know your fortune.`, ['fortune'], 5);
 
         console.log(`Total oracles available: ${oracles.length}`);

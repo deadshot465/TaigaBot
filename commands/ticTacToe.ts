@@ -1,10 +1,10 @@
 import * as Discord from 'discord.js';
 import * as fs from 'fs';
-import { getHorizontalLines } from '../helper';
+import { getHorizontalLines } from '../utility/helper';
 
 const VERTICAL_LENGTH = 3;
 const HORIZONTAL_LENGTH = 3;
-const FILE_PATH = './database/ticTacToe.json';
+const FILE_PATH = './storage/ticTacToe.json';
 
 enum GameResult {
     CircleWin, CrossWin, Draw

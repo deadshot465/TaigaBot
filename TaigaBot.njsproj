@@ -36,9 +36,10 @@
     <Content Include="auth.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="database\oracles.json" />
-    <Content Include="database\routes.json" />
-    <Content Include="database\valentines.json" />
+    <Content Include="storage\oracles.json" />
+    <Content Include="storage\routes.json" />
+    <Content Include="storage\shipMessages.json" />
+    <Content Include="storage\valentines.json" />
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
@@ -51,7 +52,14 @@
     <TypeScriptCompile Include="commands\convert.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="commands\dialog.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="commands\enlarge.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="commands\help.ts" />
+    <TypeScriptCompile Include="commands\info.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="commands\lookupTables.ts">
@@ -61,25 +69,32 @@
     <TypeScriptCompile Include="commands\route.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="commands\ship.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="commands\ticTacToe.ts" />
     <TypeScriptCompile Include="commands\valentine.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="database\dumpStorage.ts">
+    <TypeScriptCompile Include="storage\dumpStorage.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="helper.ts">
+    <TypeScriptCompile Include="utility\helper.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="interfaces\ICharacterRouter.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="interfaces\ICommand.ts" />
+    <TypeScriptCompile Include="utility\patterns.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="commands\" />
     <Folder Include="commands\base\" />
-    <Folder Include="database\" />
+    <Folder Include="utility\" />
+    <Folder Include="storage\" />
     <Folder Include="interfaces\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
