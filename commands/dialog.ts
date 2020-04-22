@@ -59,7 +59,7 @@ export default class Dialog extends Command {
             return;
         }
 
-        if (args.length < 0) {
+        if (args.length <= 0) {
             channel.send('At least give me something to send, you dumbass.');
             return;
         }

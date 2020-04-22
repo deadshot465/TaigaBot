@@ -37,6 +37,9 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="storage\oracles.json" />
+    <Content Include="storage\randomMessages.json">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="storage\routes.json" />
     <Content Include="storage\shipMessages.json" />
     <Content Include="storage\valentines.json" />
@@ -59,6 +62,9 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="commands\help.ts" />
+    <TypeScriptCompile Include="commands\image.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="commands\info.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -66,6 +72,9 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="commands\oracle.ts" />
+    <TypeScriptCompile Include="commands\ping.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="commands\route.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -74,6 +83,9 @@
     </TypeScriptCompile>
     <TypeScriptCompile Include="commands\ticTacToe.ts" />
     <TypeScriptCompile Include="commands\valentine.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="interfaces\IUnsplashSearchResult.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="storage\reactions.ts">
