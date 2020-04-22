@@ -1,3 +1,6 @@
+// Copyright(C) 2020 Tetsuki Syu
+// See bot.ts for the full notice.
+
 import * as Discord from 'discord.js';
 import { EMOTE_ID_REGEX, EMOTE_IS_ANIMATED_REGEX } from '../utility/patterns';
 import Command from './base/command';

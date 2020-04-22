@@ -1,3 +1,6 @@
+// Copyright(C) 2020 Tetsuki Syu
+// See bot.ts for the full notice.
+
 export const LOOKUP_LENGTH = {
     'km': {
         'km': 1,

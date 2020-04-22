@@ -8,6 +8,8 @@ objects/*.js
 bot.js
 helper.js
 server.js
+server.js.map
+server.ts
 auth.json
 .env
 interfaces/*.js

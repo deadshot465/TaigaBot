@@ -1,5 +1,8 @@
+// Copyright(C) 2020 Tetsuki Syu
+// See bot.ts for the full notice.
+
 import * as Discord from 'discord.js';
-import { USER_MENTION, USER_TAG, DISCORD_ID } from './patterns'
+import { DISCORD_ID, USER_MENTION, USER_TAG } from './patterns';
 
 export function getRandomInt(min: number, max: number): number {
     min = Math.ceil(min);

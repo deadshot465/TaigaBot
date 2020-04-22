@@ -1,3 +1,6 @@
+// Copyright(C) 2020 Tetsuki Syu
+// See bot.ts for the full notice.
+
 import * as Discord from 'discord.js';
 import { ALIASES, COMMANDS } from '../bot';
 import Command from './base/command';

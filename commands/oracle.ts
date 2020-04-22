@@ -1,3 +1,6 @@
+// Copyright(C) 2020 Tetsuki Syu
+// See bot.ts for the full notice.
+
 import * as Discord from 'discord.js';
 import * as oracles from '../storage/oracles.json';
 import { getRandomInt } from '../utility/helper';

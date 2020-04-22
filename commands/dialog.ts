@@ -1,3 +1,6 @@
+// Copyright(C) 2020 Tetsuki Syu
+// See bot.ts for the full notice.
+
 import axios, { AxiosError } from 'axios';
 import * as Discord from 'discord.js';
 import { EMOJI_REGEX, EMOTE_MENTIONS_REGEX, NONASCII_REGEX } from '../utility/patterns';

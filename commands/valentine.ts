@@ -1,7 +1,10 @@
+// Copyright(C) 2020 Tetsuki Syu
+// See bot.ts for the full notice.
+
 import * as Discord from 'discord.js';
+import ICharacterRouter from '../interfaces/ICharacterRouter';
 import * as valentines from '../storage/valentines.json';
 import { getRandomInt } from "../utility/helper";
-import ICharacterRouter from '../interfaces/ICharacterRouter';
 import Command from './base/command';
 
 export default class Valentine extends Command implements ICharacterRouter {

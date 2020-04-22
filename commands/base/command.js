@@ -1,4 +1,6 @@
 "use strict";
+// Copyright(C) 2020 Tetsuki Syu
+// See bot.ts for the full notice.
 Object.defineProperty(exports, "__esModule", { value: true });
 class Command {
     constructor(name, category, description, usage, alias, cooldown) {
