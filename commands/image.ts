@@ -50,6 +50,10 @@ export default class Image extends Command {
                         totalPages = data.total_pages;
                     });
 
+                if (!total) {
+                    return new Discord.MessageAttachment(`Sorry. Not my problem. Your keyword is too weird that I can't find any image.`);
+                }
+
                 const randomPageNumber = getRandomInt(0, totalPages + 1);
 
                 response = await Axios.get(`https://api.unsplash.com/search/photos?client_id=${token}&query=${keyword}&page=${randomPageNumber}`)
