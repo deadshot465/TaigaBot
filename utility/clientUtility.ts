@@ -53,12 +53,25 @@ export default class ClientUtility {
                 message.channel.send(`<:TaigaAck2:700006264507465778> Get away from us! Although you're not wrong at all...`);
             }
             else if (content.includes('aiden')) {
-                const response = await Axios.get(`https://source.unsplash.com/1600x900/?hamburger`);
-                const attachment = new Discord.MessageAttachment(Buffer.from(response.data), 'burger.jpg');
+
+                let token = process.env.UNSPLASH_TOKEN;
+                let attachment: Discord.MessageAttachment | null | undefined;
+
+                if (token) {
+                    let link: string;
+                    const response = await Axios.get(`https://api.unsplash.com/search/photos?client_id=${token}&query=hamburger&page=1`)
+                        .then(res => {
+                            link = res.data.results[0].urls.regular;
+                        });
+                    const photo = await Axios.get(`${link!}`);
+                    attachment = new Discord.MessageAttachment(Buffer.from(photo.data), 'burger.jpg');
+                }
+
                 message.channel.send(`Three orders of double-quarter-pounder cheeseburgers! Two large fries and one large soda!\n` +
                     `Burger patties well-done, three slices of pickles for each! No mayonnaise! Just ketchup and mustard!`)
                     .then(msg => {
-                        message.channel.send(attachment);
+                        if (attachment)
+                            message.channel.send(attachment);
                     });
             }
             else if (content.includes('goro')) {
