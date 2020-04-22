@@ -98,11 +98,12 @@ taiga.on('message', async message => {
     if (message.author.bot || !message.guild) return;
 
     const startsWithPrefix = message.content.startsWith(PREFIX);
+    const ignoreChannel: string[] = [process.env.VENTCHN!];
 
     // Randomly reply a message
     const chance = parseInt(process.env.RDMCHANCE!);
     const hitMiss = getRandomInt(0, 100) < chance;
-    if (hitMiss && !startsWithPrefix) {
+    if (hitMiss && !startsWithPrefix && !ignoreChannel.includes(message.channel.id)) {
         const response = RANDOM_RESPONSES[getRandomInt(0, RANDOM_RESPONSES.length)];
         message.channel.send(response);
     }

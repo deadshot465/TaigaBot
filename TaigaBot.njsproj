@@ -79,6 +79,9 @@
     <TypeScriptCompile Include="storage\reactions.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="utility\clientUtility.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="utility\helper.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>

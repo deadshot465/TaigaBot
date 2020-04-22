@@ -107,7 +107,7 @@ The syntax is \`${PREFIX}cvt <unit-to-convert-to> <value>\``.trim())
                     break;
             }
 
-            return format(`<:chibitaiga:700006264507465778> According to Lee's calculations, %s is %d%s`,
+            return format(`<:chibitaiga:697893400891883531> According to Lee's calculations, %s is %d%s`,
                 sourceValue + this.unitToDisplay(sourceUnit),
                 Math.round(result * 100000) / 100000,
                 this.unitToDisplay(targetUnit));
