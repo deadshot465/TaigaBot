@@ -8,6 +8,8 @@ const BACKGROUNDS = [
     "bath", "beach", "cabin", "camp",
     "cave", "forest", "messhall"
 ];
+const UNSPLASH_MAX_PAGES = 24;
+const UNSPLASH_ITEM_PER_PAGE = 10;
 
 export default class ClientUtility {
     
@@ -59,9 +61,12 @@ export default class ClientUtility {
 
                 if (token) {
                     let link: string;
-                    const response = await Axios.get(`https://api.unsplash.com/search/photos?client_id=${token}&query=hamburger&page=1`)
+                    const randomPageNumber = getRandomInt(0, UNSPLASH_MAX_PAGES + 1);
+                    const response = await Axios.get(`https://api.unsplash.com/search/photos?client_id=${token}&query=hamburger&page=${randomPageNumber}`)
                         .then(res => {
-                            link = res.data.results[0].urls.regular;
+                            const itemNo = (randomPageNumber == UNSPLASH_MAX_PAGES) ?
+                                getRandomInt(0, 3) : getRandomInt(0, UNSPLASH_ITEM_PER_PAGE);
+                            link = res.data.results[itemNo].urls.regular;
                         });
                     const photo = await Axios.get(`${link!}`, {
                         headers: {
