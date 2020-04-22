@@ -59,7 +59,13 @@ export default class ClientUtility {
 
                 if (token) {
                     let link: string;
-                    const response = await Axios.get(`https://api.unsplash.com/search/photos?client_id=${token}&query=hamburger&page=1`)
+                    const response = await Axios.get(`https://api.unsplash.com/search/photos?client_id=${token}&query=hamburger&page=1`,
+                        {
+                            headers: {
+                                'Accept': 'image/jpeg',
+                                'Content-Type': 'image/jpeg'
+                            }
+                        })
                         .then(res => {
                             link = res.data.results[0].urls.regular;
                         });
