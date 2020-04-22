@@ -12,3 +12,4 @@ auth.json
 .env
 interfaces/*.js
 storage/*.js
+utility/*.js
