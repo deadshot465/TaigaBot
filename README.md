@@ -4,9 +4,13 @@ Taiga bot is a bot that aims to provide interactive experiences to the users in 
 
 Taiga bot is based on and is a modified version of [yuuto-bot](https://github.com/Yuuto-Project/yuuto-bot), which is a community-driven project of Offical Camp Buddy Fan Server members, under GNU GPLv3 license. Yuuto bot's idea came from an increasing number of tech-oriented campers in the official fan server. While Yuuto is made by the community and for the community, the dialog choices and some design decisions are not meant for a specific character's fan server such as Taiga's fan server. Therefore, Taiga bot, while based on Yuuto bot and retains most features from Yuuto bot, aims to solve this problem and tailor to Taiga fan server's needs.
 
+Taiga bot is also based on [hirobot](https://github.com/dunste123/hirobot) by dunste123 under the same license.
+
 **Taiga bot is not the original version of Yuuto bot, but a modified version. Hence, if you are interested in the original version, please visit [yuuto-bot](https://github.com/Yuuto-Project/yuuto-bot) instead.**
 
 *If you are interested in joining the project as a developer, please take time to check out Yuuto project's [website](https://iamdeja.github.io/yuuto-docs/).*
+
+*See [hirobot](https://github.com/dunste123/hirobot) for the codebase of Hiro bot.*
 
 ## Contents
 
@@ -113,5 +117,6 @@ Taiga bot will not be possible without the code base of Yuuto bot. All credit fo
 
 - [Yuuto Project](https://iamdeja.github.io/yuuto-docs/)
 - [Yuuto-bot Repository](https://github.com/Yuuto-Project/yuuto-bot)
+- [hirobot](https://github.com/dunste123/hirobot) (by dunste123)
 - [Blits Games](https://www.blitsgames.com/)
 - [Official Camp Buddy Fan Server](https://discord.gg/campbuddy) (on Discord)

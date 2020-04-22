@@ -17,6 +17,8 @@
 //    **This is a modified and rewritten version of Yuuto bot.**
 //    **Please refer to Yuuto bot's repository for more information.**
 //    **https://github.com/Yuuto-Project/yuuto-bot**
+//    **Codebase also influenced by Hiro bot by dunste123.**
+//    **https://github.com/dunste123/hirobot**
 
 import * as Discord from 'discord.js';
 import * as DotEnv from 'dotenv';
