@@ -24,7 +24,7 @@ export default class ClientUtility {
                 const response = await Axios.post('https://yuuto.dunctebot.com/dialog',
                     {
                         background: background,
-                        character: `hiro`,
+                        character: `taiga`,
                         text: `Hiro will be terribly wrong if he thinks he can steal Keitaro from me!`
                     }, {
                     responseType: 'arraybuffer',
@@ -54,7 +54,7 @@ export default class ClientUtility {
             }
             else if (content.includes('aiden')) {
                 const response = await Axios.get(`https://source.unsplash.com/1600x900/?hamburger`);
-                const attachment = new Discord.MessageAttachment(Buffer.from(response.data), 'burger.png');
+                const attachment = new Discord.MessageAttachment(Buffer.from(response.data), 'burger.jpg');
                 message.channel.send(`Three orders of double-quarter-pounder cheeseburgers! Two large fries and one large soda!\n` +
                     `Burger patties well-done, three slices of pickles for each! No mayonnaise! Just ketchup and mustard!`)
                     .then(msg => {
