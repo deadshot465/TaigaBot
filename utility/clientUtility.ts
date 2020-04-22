@@ -3,7 +3,7 @@ import * as Discord from 'discord.js';
 import { RANDOM_RESPONSES } from '../storage/reactions';
 import { getRandomInt } from './helper';
 
-const SPECIALIZED_CHANCE = 25;
+const SPECIALIZED_CHANCE = 50;
 const BACKGROUNDS = [
     "bath", "beach", "cabin", "camp",
     "cave", "forest", "messhall"
