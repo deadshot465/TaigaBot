@@ -1,4 +1,6 @@
-export const GREETINGS = [
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.GREETINGS = [
     `{name} Hey dweeb, welcome to my fanclub server! <:TaigaSmug:702210822310723614>`,
     `Uh, hi, so you're Keitaro's friend, right? Cool, I'm Taiga. Nice to meet you, {name}! Pretty chill around here, so just hang out.`,
     `{name} Amateurs!`,
@@ -9,8 +11,7 @@ export const GREETINGS = [
     `{name} Rule No.1: Only fast food here.`,
     `{name} As I was saying...`
 ];
-
-export const RANDOM_RESPONSES = [
+exports.RANDOM_RESPONSES = [
     `Yeah, that's right!`,
     `Dummy...`,
     `Come on, hurry up!`,
@@ -20,8 +21,7 @@ export const RANDOM_RESPONSES = [
     `Later losers!`,
     `Amateurs!`
 ];
-
-export const FAILED_MESSAGES = [
+exports.FAILED_MESSAGES = [
     `What the actual fuck was that...`,
     `If you have time talking about gibberish, why not check the latest chapter of Winter's Splendor?`,
     `Ugh...What a cringe test.`,
@@ -33,3 +33,4 @@ export const FAILED_MESSAGES = [
     `Hey dingbat, do the command right next time...What? It totally wasn't *my* fault!`,
     `I don't know which is worse, Eduard and Lee combined, or you.`
 ];
+//# sourceMappingURL=reactions.js.map

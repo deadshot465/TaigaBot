@@ -97,15 +97,17 @@ taiga.on('guildMemberAdd', member => {
 taiga.on('message', async message => {
     if (message.author.bot || !message.guild) return;
 
+    const startsWithPrefix = message.content.startsWith(PREFIX);
+
     // Randomly reply a message
     const chance = parseInt(process.env.RDMCHANCE!);
     const hitMiss = getRandomInt(0, 100) < chance;
-    if (hitMiss) {
+    if (hitMiss && !startsWithPrefix) {
         const response = RANDOM_RESPONSES[getRandomInt(0, RANDOM_RESPONSES.length)];
         message.channel.send(response);
     }
 
-    if (!message.content.startsWith(PREFIX)) return;
+    if (!startsWithPrefix) return;
     if (((process.env.BOTCHN && process.env.BOTMODCHN) &&
         (message.channel.id != process.env.BOTCHN &&
         message.channel.id != process.env.BOTMODCHN)) &&
