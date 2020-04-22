@@ -59,17 +59,17 @@ export default class ClientUtility {
 
                 if (token) {
                     let link: string;
-                    const response = await Axios.get(`https://api.unsplash.com/search/photos?client_id=${token}&query=hamburger&page=1`,
-                        {
-                            headers: {
-                                'Accept': 'image/jpeg',
-                                'Content-Type': 'image/jpeg'
-                            }
-                        })
+                    const response = await Axios.get(`https://api.unsplash.com/search/photos?client_id=${token}&query=hamburger&page=1`)
                         .then(res => {
                             link = res.data.results[0].urls.regular;
                         });
-                    const photo = await Axios.get(`${link!}`);
+                    const photo = await Axios.get(`${link!}`, {
+                        headers: {
+                            'Accept': 'image/jpeg',
+                            'Content-Type': 'image/jpeg'
+                        },
+                        responseType: 'arraybuffer'
+                    });
                     attachment = new Discord.MessageAttachment(Buffer.from(photo.data), 'burger.jpg');
                 }
 
