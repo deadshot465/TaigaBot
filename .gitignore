@@ -11,3 +11,4 @@ server.js
 auth.json
 .env
 interfaces/*.js
+storage/*.js
