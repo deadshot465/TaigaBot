@@ -25,6 +25,9 @@ export default class Image extends Command {
             channel.send(`Did you read the help? No keyword! I'd just give you a burger.`);
             keyword = 'hamburger';
         }
+        else {
+            keyword = args.shift()!.toLowerCase();
+        }
 
         const attachment = await Image.getImage(keyword);
         message.reply(`Here is your image for ${keyword}`, attachment!);
