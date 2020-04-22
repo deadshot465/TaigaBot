@@ -87,10 +87,12 @@ taiga.once('ready', () => {
     const presenceFn = () => {
         console.log('Setting presence');
 
+        const activity = ACTIVITIES[getRandomInt(0, ACTIVITIES.length)];
+
         taiga.user?.setPresence({
             status: 'online',
             activity: {
-                name: ACTIVITIES[getRandomInt(0, ACTIVITIES.length)],
+                name: activity,
                 type: 'PLAYING'
             }
         });
