@@ -2,7 +2,8 @@ import * as Discord from 'discord.js';
 import * as DotEnv from 'dotenv';
 import { readdirSync } from 'fs';
 import Command from './commands/base/command';
-import { FAILED_MESSAGES, GREETINGS, RANDOM_RESPONSES } from './storage/reactions';
+import { FAILED_MESSAGES, GREETINGS } from './storage/reactions';
+import ClientUtility from './utility/clientUtility';
 import { getRandomInt } from './utility/helper';
 
 // Configures the environment variables
@@ -104,8 +105,7 @@ taiga.on('message', async message => {
     const chance = parseInt(process.env.RDMCHANCE!);
     const hitMiss = getRandomInt(0, 100) < chance;
     if (hitMiss && !startsWithPrefix && !ignoreChannel.includes(message.channel.id)) {
-        const response = RANDOM_RESPONSES[getRandomInt(0, RANDOM_RESPONSES.length)];
-        message.channel.send(response);
+        ClientUtility.randomMsgHandler(message);
     }
 
     if (!startsWithPrefix) return;
