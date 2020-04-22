@@ -82,7 +82,7 @@ This repo doesn't include compiled `.js` files. Therefore, whether you are inter
    UNSPLASH_TOKEN = <This bot uses Unsplash's API to acquire certain images. This is the token of your Unsplash application>
    ```
 
-   **All placeholder texts should be replaced by your own content, without quotation marks (`"` and `'`) and greater than/less than (`<` and `>`) symbols.**
+   **All placeholder texts should be replaced with your own content, without quotation marks (`"` and `'`) and greater than/less than (`<` and `>`) symbols.**
 
 ## Differences between Taiga Bot and Yuuto Bot
 

@@ -14,7 +14,7 @@
 //    You should have received a copy of the GNU General Public License
 //    along with this program.  If not, see < https://www.gnu.org/licenses/>.
 //
-//    **This is a modified and rewritten version Yuuto bot.**
+//    **This is a modified and rewritten version of Yuuto bot.**
 //    **Please refer to Yuuto bot's repository for more information.**
 //    **https://github.com/Yuuto-Project/yuuto-bot**
 
