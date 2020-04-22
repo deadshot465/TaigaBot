@@ -33,3 +33,8 @@ export const FAILED_MESSAGES = [
     `Hey dingbat, do the command right next time...What? It totally wasn't *my* fault!`,
     `I don't know which is worse, Eduard and Lee combined, or you.`
 ];
+
+export const ACTIVITIES = [
+    `Handcrafting`, `Keitaro`, `Sculpting`, `Eating`, `Sleeping`, `Writing`, `Working out`,
+    `Reading`
+];

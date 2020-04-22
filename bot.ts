@@ -24,7 +24,7 @@ import * as Discord from 'discord.js';
 import * as DotEnv from 'dotenv';
 import { readdirSync } from 'fs';
 import Command from './commands/base/command';
-import { FAILED_MESSAGES, GREETINGS } from './storage/reactions';
+import { ACTIVITIES, FAILED_MESSAGES, GREETINGS } from './storage/reactions';
 import ClientUtility from './utility/clientUtility';
 import { getRandomInt } from './utility/helper';
 
@@ -90,7 +90,7 @@ taiga.once('ready', () => {
         taiga.user?.setPresence({
             status: 'online',
             activity: {
-                name: 'Handcrafting',
+                name: ACTIVITIES[getRandomInt(0, ACTIVITIES.length)],
                 type: 'PLAYING'
             }
         });
