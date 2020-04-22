@@ -83,6 +83,14 @@ This repo doesn't include compiled `.js` files. Therefore, whether you are inter
    ```
 
    **All placeholder texts should be replaced with your own content, without quotation marks (`"` and `'`) and greater than/less than (`<` and `>`) symbols.**
+   
+7. Once you set up, run:
+
+   ```bash
+   node bot.js
+   ```
+
+   to run the bot.
 
 ## Differences between Taiga Bot and Yuuto Bot
 
