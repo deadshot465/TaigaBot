@@ -65,7 +65,7 @@ taiga.once('ready', () => {
         console.log('Setting presence');
 
         taiga.user?.setPresence({
-            status: 'invisible',
+            status: 'online',
             activity: {
                 name: 'Handcrafting',
                 type: 'PLAYING'
