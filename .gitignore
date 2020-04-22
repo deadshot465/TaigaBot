@@ -1,6 +1,7 @@
 .vs/
 bin/
 commands/*.js
+commands/base/*.js
 database/*.js
 node_modules/
 obj/
