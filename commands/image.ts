@@ -29,11 +29,16 @@ export default class Image extends Command {
             keyword = args.shift()!.toLowerCase();
         }
 
-        const attachment = await Image.getImage(keyword);
-        message.reply(`Here is your image for ${keyword}`, attachment!);
+        const attachment = await Image.getImage(keyword)
+        if (attachment) {
+            if (attachment instanceof Discord.MessageAttachment)
+                message.reply(`Here is your image for ${keyword}`, attachment);
+            else
+                message.reply(attachment);
+        }
     }
 
-    static async getImage(keyword: string): Promise<Discord.MessageAttachment | null | undefined> {
+    static async getImage(keyword: string): Promise<Discord.MessageAttachment | string | null | undefined> {
         let token = process.env.UNSPLASH_TOKEN;
         let attachment: Discord.MessageAttachment | null | undefined;
 
@@ -41,6 +46,8 @@ export default class Image extends Command {
             let link: string;
             let total = 0;
             let totalPages = 0;
+
+            console.log(`Keyword: ${keyword}`);
 
             try {
                 let response = await Axios.get(`https://api.unsplash.com/search/photos?client_id=${token}&query=${keyword}&page=1`)
@@ -50,8 +57,10 @@ export default class Image extends Command {
                         totalPages = data.total_pages;
                     });
 
+                console.log(`Total: ${total}`);
+
                 if (!total) {
-                    return new Discord.MessageAttachment(`Sorry. Not my problem. Your keyword is too weird that I can't find any image.`);
+                    return `Sorry. Not my problem. Your keyword is too weird that I can't find any image.`;
                 }
 
                 const randomPageNumber = getRandomInt(0, totalPages + 1);
@@ -76,7 +85,7 @@ export default class Image extends Command {
                 attachment = new Discord.MessageAttachment(Buffer.from(photo.data), 'image.jpg');
                 return attachment;
             } catch (e) {
-                return new Discord.MessageAttachment(`An error occured. I blame Rhakon again. <:TaigaLOL:700004692079542333> - ${JSON.parse((<AxiosError>e).response!.data).message}`);
+                return `An error occured. I blame Rhakon again. <:TaigaLOL:700004692079542333> - ${JSON.parse((<AxiosError>e).response!.data).message}`;
             }
         }
         else
