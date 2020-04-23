@@ -127,6 +127,7 @@ taiga.on('message', async message => {
 
     // React to messages
     ClientUtility.randomReactionHandler(message);
+    ClientUtility.randomUserReactionHandler(message);
 
     // Randomly reply a message
     const chance = parseInt(process.env.RDMCHANCE!);

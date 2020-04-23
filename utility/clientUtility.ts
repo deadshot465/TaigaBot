@@ -10,6 +10,7 @@ import { getRandomInt } from './helper';
 
 const SPECIALIZED_CHANCE = 50;
 const REACTION_CHANCE = 33;
+const USER_REACTION_CHANCE = 25;
 const BACKGROUNDS = [
     "bath", "beach", "cabin", "camp",
     "cave", "forest", "messhall"
@@ -83,6 +84,18 @@ export default class ClientUtility {
                     break;
                 }
             }
+        }
+    }
+
+    static randomUserReactionHandler(message: Discord.Message) {
+        const hitMiss = getRandomInt(0, 100) < USER_REACTION_CHANCE;
+        if (hitMiss) {
+            if (message.author.id === '180740743852326912')
+                message.reply(`Stop fooling around, Rhakon. Where's my next chapter?! <:TaigaAngry:699705315519889479>`);
+            else if (message.author.id === '215526684797960192')
+                message.reply(`Restrain Rhakon, will you, Kachi?`);
+            else if (message.author.id === '169936831373115393')
+                message.reply(`You're the best!!! <:TaigaHappy:586763559434977293>`);
         }
     }
 
