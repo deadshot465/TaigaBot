@@ -1,16 +1,87 @@
-[
+﻿[
+  {
+    "keyword": "taiga",
+    "messages": [
+      "Taiga? Yea, that's me.",
+      "What the actual fuck...",
+      "Fine!"
+    ],
+    "reactions": [
+      "699702364755460166",
+      "699711760243884153",
+      "700032178246910032",
+      "700036884415643728",
+      "699702884635246624",
+      "699702462918950992",
+      "700900603286781952",
+      "700900563449282580",
+      "700004692079542333",
+      "697893400891883531",
+      "702691649956085871",
+      "697905337495322632",
+      "🐈",
+      "🐱",
+      "🍔",
+      "🍟",
+      "🍗",
+      "🐅",
+      "🐯",
+      "☀️",
+      "🌞",
+      "♋",
+      "🦀",
+      "📕"
+    ]
+  },
   {
     "keyword": "keitaro",
     "messages": [
       "What's your problem with my boyfriend?",
       "Stop fooling around and come to me.",
       "I really hope we can live together."
+    ],
+    "reactions": [
+      "699702364755460166",
+      "699711760243884153",
+      "700032178246910032",
+      "700036884415643728",
+      "💗",
+      "💓",
+      "💘",
+      "💕",
+      "❤️",
+      "699702884635246624",
+      "699702462918950992",
+      "700900603286781952",
+      "700900563449282580",
+      "700004692079542333",
+      "697893400891883531",
+      "702691649956085871",
+      "697905337495322632",
+      "✍️",
+      "📷",
+      "📸",
+      "😁",
+      "📗",
+      "🐸",
+      "🌧️",
+      "☂️",
+      "♈",
+      "🐏"
     ]
   },
   {
     "keyword": "natsumi",
     "messages": [
       "<:TaigaSmug:702210822310723614> I'm still better than him 'cause I'm the best!"
+    ],
+    "reactions": [
+      "🏊‍♂️",
+      "🧹",
+      "🐞",
+      "⌚",
+      "697893038936293416",
+      "♊"
     ]
   },
   {
@@ -18,6 +89,16 @@
     "messages": [
       "<:KachiSad:701226059726585866> I felt him. I'd be baffled if someone told me to stop handcrafting. I mean how else could I make a bracelet?",
       "You're just like Keitaro. You really need to learn how to say no."
+    ],
+    "reactions": [
+      "✏️",
+      "🖍️",
+      "🎨",
+      "🖌️",
+      "🐇",
+      "♓",
+      "🐟",
+      "697892978718670898"
     ]
   },
   {
@@ -28,24 +109,79 @@
       "Do I really have to drag you to the bathroom to make you take a bath?",
       "That collor is ridiculous. Thankfully I have a better present for Keitaro in my route.",
       "I don't think Hiro will easily go out with you even though Keitaro is already mine."
+    ],
+    "reactions": [
+      "🐺",
+      "🐕",
+      "🐶",
+      "🐾",
+      "💩",
+      "🦴",
+      "701105694761418774",
+      "702210822310723614",
+      "♒",
+      "697893116253831229",
+      "🍬",
+      "🎥",
+      "🎦",
+      "🍿",
+      "📽️",
+      "📺",
+      "💢"
     ]
   },
   {
     "keyword": "yoshi",
     "messages": [
       "<:TaigaAngry:699705315519889479> Stop sticking your nose where it doesn't belong!"
+    ],
+    "reactions": [
+      "699710154861445172",
+      "701105694761418774",
+      "699705315519889479",
+      "702646568146436187",
+      "700006812673638500",
+      "🐻",
+      "♓",
+      "🐟",
+      "💢",
+      "🎸",
+      "🏕️",
+      "⛺",
+      "🔥"
     ]
   },
   {
     "keyword": "yuri",
     "messages": [
       "<:TaigaAck2:700006264507465778> Get away from us! Although you're not wrong at all..."
+    ],
+    "reactions": [
+      "699710154861445172",
+      "701105694761418774",
+      "699705315519889479",
+      "702646568146436187",
+      "700006812673638500",
+      "🤮",
+      "🤢",
+      "🦋",
+      "♉",
+      "🐄",
+      "💢"
     ]
   },
   {
     "keyword": "goro",
     "messages": [
       "So when are you going to confess to Yoshi?"
+    ],
+    "reactions": [
+      "700006264507465778",
+      "700006812673638500",
+      "🐼",
+      "♋",
+      "🦀",
+      "🥾"
     ]
   },
   {
@@ -54,30 +190,83 @@
       "Your sassiness is killing me, Eduard.",
       "Where is the wax your promised me?",
       "I don't know which is crazier, his cheesy talk or his sassiness..."
+    ],
+    "reactions": [
+      "701105694761418774",
+      "699705315519889479",
+      "702646568146436187",
+      "697892864725614592",
+      "💅",
+      "🦩",
+      "💇‍♂️",
+      "🐙",
+      "🦑",
+      "👾",
+      "♊"
     ]
   },
   {
     "keyword": "lee",
     "messages": [
       "Next time you talk, at least bring me a dictionary, Lee."
+    ],
+    "reactions": [
+      "📚",
+      "💻",
+      "697892809600008253",
+      "🐍",
+      "♌"
     ]
   },
   {
     "keyword": "seto",
     "messages": [
       "No thanks. I don't really play PnesP games."
+    ],
+    "reactions": [
+      "💻",
+      "🐈",
+      "🐱",
+      "🎵",
+      "🎧",
+      "🏊‍♂️",
+      "🎤",
+      "♌"
     ]
   },
   {
     "keyword": "felix",
     "messages": [
       "Ri$h"
+    ],
+    "reactions": [
+      "🦊",
+      "💲",
+      "💰",
+      "💱",
+      "💍",
+      "💎",
+      "♎"
     ]
   },
   {
     "keyword": "yuki",
     "messages": [
       "KEEP THAT DAMN DOG AWAY FROM ME!!!"
+    ],
+    "reactions": [
+      "🐕"
+    ]
+  },
+  {
+    "keyword": "kieran",
+    "messages": [
+    ],
+    "reactions": [
+      "🦁",
+      "♌",
+      "697905134306328737",
+      "700003622183895099"
     ]
   }
 ]

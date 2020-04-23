@@ -9,6 +9,7 @@ import { RANDOM_RESPONSES } from '../storage/reactions';
 import { getRandomInt } from './helper';
 
 const SPECIALIZED_CHANCE = 50;
+const REACTION_CHANCE = 33;
 const BACKGROUNDS = [
     "bath", "beach", "cabin", "camp",
     "cave", "forest", "messhall"
@@ -52,7 +53,8 @@ export default class ClientUtility {
             }
             else {
                 for (const target of randomMessages) {
-                    if (message.content.includes(target.keyword)) {
+                    if (message.content.includes(target.keyword) &&
+                        target.messages.length > 0) {
                         message.channel.send(target.messages[getRandomInt(0, target.messages.length)]);
                         break;
                     }
@@ -62,6 +64,25 @@ export default class ClientUtility {
         else {
             const response = RANDOM_RESPONSES[getRandomInt(0, RANDOM_RESPONSES.length)];
             message.channel.send(response);
+        }
+    }
+
+    static randomReactionHandler(message: Discord.Message) {
+        const hitMiss = getRandomInt(0, REACTION_CHANCE);
+        if (hitMiss) {
+            for (const target of randomMessages) {
+                if (message.content.toLowerCase().includes(target.keyword)) {
+                    const reaction = target.reactions[getRandomInt(0, target.reactions.length)];
+                    if (/\d+/g.test(reaction)) {
+                        message.react(message.guild!.emojis.cache.get(reaction)!)
+                            .catch(console.error);
+                    }
+                    else {
+                        message.react(reaction).catch(console.error);
+                    }
+                    break;
+                }
+            }
         }
     }
 
