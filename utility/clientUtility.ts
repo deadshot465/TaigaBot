@@ -68,7 +68,7 @@ export default class ClientUtility {
     }
 
     static randomReactionHandler(message: Discord.Message) {
-        const hitMiss = getRandomInt(0, REACTION_CHANCE);
+        const hitMiss = getRandomInt(0, 100) < REACTION_CHANCE;
         if (hitMiss) {
             for (const target of randomMessages) {
                 if (message.content.toLowerCase().includes(target.keyword)) {
