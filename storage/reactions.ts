@@ -26,7 +26,7 @@ export const FAILED_MESSAGES = [
     `If you have time talking about gibberish, why not check the latest chapter of Winter's Splendor?`,
     `Ugh...What a cringe test.`,
     `GREAT, now I have something new to write on my journal.`,
-    `Shit, "command" failed.`,
+    `Shit, \`{command}\` failed.`,
     `I know you are dumb, but not that dumb! You have inputted wrongly.`,
     `Tch! Nice try.`,
     `Can't you even type out a command correctly, idiot?`,

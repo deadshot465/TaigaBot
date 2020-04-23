@@ -120,10 +120,13 @@ taiga.on('guildMemberAdd', member => {
 });
 
 taiga.on('message', async message => {
-    if (message.author.bot || !message.guild) return;
 
     const startsWithPrefix = message.content.startsWith(PREFIX);
     const ignoreChannel: string[] = [process.env.VENTCHN!];
+
+    // Don't do anything in venting channel
+    if (message.author.bot || !message.guild) return;
+    if (ignoreChannel.includes(message.channel.id)) return;
 
     // React to messages
     ClientUtility.randomReactionHandler(message);
@@ -132,7 +135,7 @@ taiga.on('message', async message => {
     // Randomly reply a message
     const chance = parseInt(process.env.RDMCHANCE!);
     const hitMiss = getRandomInt(0, 100) < chance;
-    if (hitMiss && !startsWithPrefix && !ignoreChannel.includes(message.channel.id)) {
+    if (hitMiss && !startsWithPrefix) {
         ClientUtility.randomMsgHandler(message);
     }
 
@@ -162,7 +165,8 @@ taiga.on('message', async message => {
 
     // If we still didn't find a command, fail the command and return.
     if (!command) {
-        const msg = FAILED_MESSAGES[getRandomInt(0, FAILED_MESSAGES.length)];
+        const msg = FAILED_MESSAGES[getRandomInt(0, FAILED_MESSAGES.length)]
+            .replace('{command}', cmd);
         message.channel.send(msg);
         return;
     }
