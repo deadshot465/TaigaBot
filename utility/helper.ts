@@ -22,6 +22,18 @@ export function getHorizontalLines(amount: number): string {
     return line;
 }
 
+/**
+ * Helper method to make your code have a delay without having to nest
+ *
+ * @param milliseconds {int}
+ * @returns {Promise<void>}
+ */
+export function sleep(milliseconds: number) {
+    return new Promise(resolve => {
+        setTimeout(resolve, milliseconds);
+    });
+}
+
 export function findMembers(query: string, guild: Discord.Guild | null) {
     if (!(guild instanceof Discord.Guild)) {
         throw new Error('Guild parameter is not a Discord guild.');

@@ -4,7 +4,7 @@
 import * as Discord from 'discord.js';
 import ICommand from "../../interfaces/ICommand";
 
-export default class Command implements ICommand {
+export default abstract class Command implements ICommand {
     readonly Name: string;
     readonly Category: string;
     readonly Description: string;
@@ -22,7 +22,5 @@ export default class Command implements ICommand {
         this.Alias = alias;
     }
 
-    run(client: Discord.Client, message: Discord.Message, args: string[]): void {
-        throw new Error(`Run function not overridden in ${this.constructor.name}`);
-    }
+    abstract run(client: Discord.Client, message: Discord.Message, args: string[]);
 }

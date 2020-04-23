@@ -52,6 +52,9 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="commands\base\command.ts" />
+    <TypeScriptCompile Include="commands\base\game.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="commands\convert.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -71,6 +74,9 @@
     <TypeScriptCompile Include="commands\lookupTables.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="commands\minigame.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="commands\oracle.ts" />
     <TypeScriptCompile Include="commands\ping.ts">
       <SubType>Code</SubType>
@@ -81,7 +87,7 @@
     <TypeScriptCompile Include="commands\ship.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="commands\ticTacToe.ts" />
+    <TypeScriptCompile Include="commands\games\ticTacToe.ts" />
     <TypeScriptCompile Include="commands\valentine.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -108,6 +114,7 @@
   <ItemGroup>
     <Folder Include="commands\" />
     <Folder Include="commands\base\" />
+    <Folder Include="commands\games\" />
     <Folder Include="utility\" />
     <Folder Include="storage\" />
     <Folder Include="interfaces\" />
