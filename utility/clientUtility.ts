@@ -10,10 +10,43 @@ import { getRandomInt } from './helper';
 
 const SPECIALIZED_CHANCE = 50;
 const REACTION_CHANCE = 33;
-const USER_REACTION_CHANCE = 25;
+const USER_REACTION_CHANCE = 5;
 const BACKGROUNDS = [
     "bath", "beach", "cabin", "camp",
     "cave", "forest", "messhall"
+];
+
+const KACHI_REACTIONS = [
+    `Restrain Rhakon, will you, Kachi?`,
+    `You know Rhakon won't do his job if you're not around.`,
+    `*Looking at Rhakon's draft works* Ugh, what a cringe test.`,
+    `Could you make more commissions of my Keitaro and me, instead of that stinky Yoichi?`,
+    `I will kick out Yoichi and Yuki if they continue bothering my Keitaro time.`
+];
+
+const RHAKON_REACTIONS = [
+    `Stop fooling around, Rhakon. Where's my next chapter?! <:TaigaAngry:699705315519889479>`,
+    `LMFAO`,
+    `Smh.`,
+    `Tell Keitaro to move into my apartment asap.`,
+    `No objection accepted.`,
+    `You should listen to Kachi.`,
+    `AND WHERE IS MY FUCKING CLAY`,
+    `I swear I will kick Eduard's ass if he doesn't give me my clay.`,
+    `And here I thought Lee will be more *understandable* right now.`,
+    `Midoriai should be an attribute or a property of mine character.`
+];
+
+const MAGIC_REACTIONS = [
+    `You're the best!!! <:TaigaHappy:586763559434977293>`
+];
+
+const BRANDON_REACTIONS = [
+    `Thank you for making a server for me! <:TaigaHappy:586763559434977293> I totally have no idea how this Dicksword works.`,
+    `Could you let me top Keitaro sometimes? <:TaigaAnnoyed:702646568146436187>`,
+    `Only the best like myself can be my sidekicks in this server.`,
+    `I will kick out anyone who threatens Keitaro, like Hiro maybe.`,
+    `If Yuri joins, she will be kicked on sight. I don't want her bugging me when I'm having my Keitaro time.`
 ];
 
 export default class ClientUtility {
@@ -91,11 +124,13 @@ export default class ClientUtility {
         const hitMiss = getRandomInt(0, 100) < USER_REACTION_CHANCE;
         if (hitMiss) {
             if (message.author.id === '180740743852326912')
-                message.reply(`Stop fooling around, Rhakon. Where's my next chapter?! <:TaigaAngry:699705315519889479>`);
+                message.reply(RHAKON_REACTIONS[getRandomInt(0, RHAKON_REACTIONS.length)]);
             else if (message.author.id === '215526684797960192')
-                message.reply(`Restrain Rhakon, will you, Kachi?`);
+                message.reply(KACHI_REACTIONS[getRandomInt(0, KACHI_REACTIONS.length)]);
             else if (message.author.id === '169936831373115393')
-                message.reply(`You're the best!!! <:TaigaHappy:586763559434977293>`);
+                message.reply(MAGIC_REACTIONS[getRandomInt(0, MAGIC_REACTIONS.length)]);
+            else if (message.author.id === '263348633280315395')
+                message.reply(BRANDON_REACTIONS[getRandomInt(0, BRANDON_REACTIONS.length)]);
         }
     }
 
