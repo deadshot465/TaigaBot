@@ -66,7 +66,9 @@ export default class Image extends Command {
                     return `Sorry. Not my problem. Your keyword is too weird that I can't find any image.`;
                 }
 
-                const randomPageNumber = getRandomInt(0, totalPages + 1);
+                // Limit to the first 25% pages.
+                const upperPageLimit = Math.ceil(totalPages * 0.25);
+                const randomPageNumber = getRandomInt(0, upperPageLimit + 1);
 
                 response = await Axios.get(`https://api.unsplash.com/search/photos?client_id=${token}&query=${keyword}&page=${randomPageNumber}`)
                     .then(res => {
