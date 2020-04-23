@@ -120,13 +120,15 @@ taiga.on('guildMemberAdd', member => {
 });
 
 taiga.on('message', async message => {
-
     const startsWithPrefix = message.content.startsWith(PREFIX);
     const ignoreChannel: string[] = [process.env.VENTCHN!];
 
     // Don't do anything in venting channel
     if (message.author.bot || !message.guild) return;
     if (ignoreChannel.includes(message.channel.id)) return;
+
+    // React to mentions
+    ClientUtility.mentionHandler(message);
 
     // React to messages
     ClientUtility.randomReactionHandler(message);

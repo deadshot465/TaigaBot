@@ -11,14 +11,15 @@ import { getRandomInt } from './helper';
 const SPECIALIZED_CHANCE = 50;
 const REACTION_CHANCE = 33;
 const USER_REACTION_CHANCE = 5;
+const MENTION_REACTION_CHANCE = 25;
 const BACKGROUNDS = [
     "bath", "beach", "cabin", "camp",
     "cave", "forest", "messhall"
 ];
 
 const KACHI_REACTIONS = [
-    `Restrain Rhakon, will you, Kachi?`,
-    `You know Rhakon won't do his job if you're not around.`,
+    //`Restrain Rhakon, will you, Kachi?`,
+    //`You know Rhakon won't do his job if you're not around.`,
     `*Looking at Rhakon's draft works* Ugh, what a cringe test.`,
     `Could you make more commissions of my Keitaro and me, instead of that stinky Yoichi?`,
     `I will kick out Yoichi and Yuki if they continue bothering my Keitaro time.`
@@ -52,6 +53,8 @@ const BRANDON_REACTIONS = [
 export default class ClientUtility {
     
     static async randomMsgHandler(message: Discord.Message) {
+
+        if (message.author.bot) return;
 
         const content = message.content.toLowerCase();
 
@@ -102,6 +105,7 @@ export default class ClientUtility {
     }
 
     static randomReactionHandler(message: Discord.Message) {
+        if (message.author.bot) return;
         const hitMiss = getRandomInt(0, 100) < REACTION_CHANCE;
         if (hitMiss) {
             for (const target of randomMessages) {
@@ -131,6 +135,17 @@ export default class ClientUtility {
                 message.reply(MAGIC_REACTIONS[getRandomInt(0, MAGIC_REACTIONS.length)]);
             else if (message.author.id === '263348633280315395')
                 message.reply(BRANDON_REACTIONS[getRandomInt(0, BRANDON_REACTIONS.length)]);
+        }
+    }
+
+    static mentionHandler(message: Discord.Message) {
+        const hitMiss = getRandomInt(0, 100) < MENTION_REACTION_CHANCE;
+        if (hitMiss) {
+            if (message.mentions.users.get('697727604366639136')) {
+                const msgs = randomMessages.find(val => val.keyword === 'taiga');
+                if (msgs)
+                    message.reply(msgs.messages[getRandomInt(0, msgs.messages.length)]);
+            }
         }
     }
 
