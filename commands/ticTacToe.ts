@@ -4,10 +4,11 @@
 import * as Discord from 'discord.js';
 import * as fs from 'fs';
 import { getHorizontalLines } from '../utility/helper';
+import Command from './base/command';
 
 const VERTICAL_LENGTH = 3;
 const HORIZONTAL_LENGTH = 3;
-const FILE_PATH = './storage/ticTacToe.json';
+const FILE_PATH = '../storage/ticTacToe.json';
 
 enum GameResult {
     CircleWin, CrossWin, Draw
@@ -38,6 +39,10 @@ class GameStatus {
         this.UserID = userID;
     }
 }
+
+//export default class TicTacToe extends Command {
+
+//}
 
 class TicTacToeGame {
 

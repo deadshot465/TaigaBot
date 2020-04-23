@@ -1,3 +1,6 @@
+// Copyright(C) 2020 Tetsuki Syu
+// See bot.ts for the full notice.
+
 import Axios, { AxiosError } from 'axios';
 import * as Discord from 'discord.js';
 import IUnsplashSearchResult from '../interfaces/IUnsplashSearchResult';
