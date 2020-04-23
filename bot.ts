@@ -127,7 +127,7 @@ taiga.on('message', async message => {
 
     // React to any message mentioning Taiga
     if (message.content.toLowerCase().includes('taiga'))
-        message.react(message.guild.emojis.cache.get('702696211420807249')!)
+        message.react(message.guild.emojis.cache.get('697893400891883531')!)
             .catch(console.error);
 
     // Randomly reply a message
