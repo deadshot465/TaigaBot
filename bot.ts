@@ -134,6 +134,9 @@ taiga.on('message', async message => {
     ClientUtility.randomReactionHandler(message);
     ClientUtility.randomUserReactionHandler(message);
 
+    // Randomly edit a message
+    ClientUtility.randomEditHandler(message);
+
     // Randomly reply a message
     const chance = parseInt(process.env.RDMCHANCE!);
     const hitMiss = getRandomInt(0, 100) < chance;

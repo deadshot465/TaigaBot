@@ -7,11 +7,13 @@ import Image from '../commands/image';
 import * as randomMessages from '../storage/randomMessages.json';
 import { RANDOM_RESPONSES } from '../storage/reactions';
 import { getRandomInt } from './helper';
+import { EMOTE_MENTIONS_REGEX } from './patterns';
 
 const SPECIALIZED_CHANCE = 50;
 const REACTION_CHANCE = 33;
 const USER_REACTION_CHANCE = 5;
 const MENTION_REACTION_CHANCE = 25;
+const EDIT_CHANCE = 10;
 const BACKGROUNDS = [
     "bath", "beach", "cabin", "camp",
     "cave", "forest", "messhall"
@@ -145,6 +147,19 @@ export default class ClientUtility {
                 const msgs = randomMessages.find(val => val.keyword === 'taiga');
                 if (msgs)
                     message.reply(msgs.messages[getRandomInt(0, msgs.messages.length)]);
+            }
+        }
+    }
+
+    static randomEditHandler(message: Discord.Message) {
+        if (message.author.bot) return;
+        const hitMiss = getRandomInt(0, 100) < EDIT_CHANCE;
+        if (hitMiss) {
+            if (message.content.toLowerCase().includes('taiga')) {
+                if (EMOTE_MENTIONS_REGEX.test(message.content.toLowerCase())) return;
+                let newStr = message.content.replace('taiga', 'the Great Taiga Akatora');
+                newStr = newStr.replace('Taiga', 'The Great Taiga Akatora');
+                message.edit(newStr);
             }
         }
     }
