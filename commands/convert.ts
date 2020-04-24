@@ -4,10 +4,10 @@
 import * as Discord from 'discord.js';
 import { format } from 'util';
 import { PREFIX } from '../bot';
+import * as localizedStrings from '../storage/localizedStrings.json';
 import { CVT_PATTERN } from '../utility/patterns';
 import Command from './base/command';
 import { LOOKUP_LENGTH, LOOKUP_TEMPERATURE } from './lookupTables';
-import * as localizedStrings from '../storage/localizedStrings.json';
 
 const LENGTHS = ['km', 'm', 'cm', 'in', 'ft', 'mi', 'au'];
 const TEMPS = ['c', 'f', 'k'];

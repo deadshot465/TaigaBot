@@ -3,6 +3,7 @@
 
 import axios, { AxiosError } from 'axios';
 import * as Discord from 'discord.js';
+import * as localizedStrings from '../storage/localizedStrings.json';
 import { EMOJI_REGEX, EMOTE_MENTIONS_REGEX, NONASCII_REGEX } from '../utility/patterns';
 import Command from './base/command';
 
@@ -20,12 +21,17 @@ const characters = [
 const backgroundString = backgrounds.join("`, `");
 const charactersString = characters.join("`, `");
 
+const enStrings = localizedStrings.find(val => val.lang === 'en')!;
+
 export default class Dialog extends Command {
     constructor() {
+
+        const usage = enStrings.texts.dialog.usage
+            .replace('{backgrounds}', backgroundString)
+            .replace('{characters}', charactersString);
+
         super('dialog', 'fun',
-            'Returns an image of a character in Camp Buddy saying anything you want',
-            `Run \`dialog <background> <character> <message>\` or \`dialog <character> <message>\` to give you an image of a Camp Buddy character with a custom dialog!\nAvailable backgrounds : \`${backgroundString}\`\nAvailable characters : \`${charactersString}\``
-        );
+            enStrings.texts.dialog.description, usage);
     }
 
     async run(client: Discord.Client, message: Discord.Message, args: string[]) {
@@ -33,8 +39,11 @@ export default class Dialog extends Command {
 
         const now = Date.now();
 
+        const dialogStrings = enStrings.texts.dialog;
+        const errorMsg = dialogStrings.errors;
+
         if (args.length < 2) {
-            channel.send('This command requires two arguments : `dialog [background] <character> <text>` ([] is optional)');
+            channel.send(errorMsg.length_too_short);
             return;
         }
         
@@ -50,17 +59,23 @@ export default class Dialog extends Command {
         }
 
         if (!backgrounds.includes(background)) {
-            channel.send(`Sorry, but I couldn't find \`${background}\` as a location\nAvailable backgrounds are : \`${backgroundString}\``);
+            const backgroundNotFound = errorMsg.background_not_found
+                .replace('{background}', background)
+                .replace('{backgrounds}', backgroundString);
+            channel.send(backgroundNotFound);
             return;
         }
 
         if (!characters.includes(character)) {
-            channel.send(`Sorry, but I don't think that \`${character}\` is a character in Camp Buddy\nAvailable characters are : \`${charactersString}\``);
+            const characterNotFound = errorMsg.character_not_found
+                .replace('{character}', character)
+                .replace('{characters}', charactersString);
+            channel.send(characterNotFound);
             return;
         }
 
         if (args.length <= 0) {
-            channel.send('At least give me something to send, you dumbass.');
+            channel.send(errorMsg.no_message);
             return;
         }
 
@@ -69,7 +84,7 @@ export default class Dialog extends Command {
 
         // Check if message is more than 120 chars
         if (text.length > 120) {
-            channel.send('Sorry, the message limit is 120 characters <:TaigaAck2:700006264507465778>');
+            channel.send(errorMsg.message_too_long);
             return;
         }
 
@@ -77,7 +92,7 @@ export default class Dialog extends Command {
         if (EMOJI_REGEX.test(text) ||
             EMOTE_MENTIONS_REGEX.test(text) ||
             NONASCII_REGEX.test(text)) {
-            channel.send(`I don't do emotes, mentions, or non-latin characters`);
+            channel.send(errorMsg.wrong_character_set);
             return;
         }
 
@@ -96,14 +111,17 @@ export default class Dialog extends Command {
 
             console.debug(`Generated image for ${character} at ${background}, took ${Date.now() - now}ms`);
 
-            message.reply('Here you go~!', attachment);
+            message.reply(dialogStrings.result, attachment);
         } catch (e) {
             if ((<AxiosError>e).response!.status === 429) {
-                channel.send(`I only have two hands, not an octopus. Bother me again later. <:TaigaAngry:699705315519889479>`);
+                channel.send(errorMsg.cooldown);
                 return;
             }
 
-            channel.send(`An error just happened. I blame Rhakon. <:TaigaLOL:700004692079542333> - ${JSON.parse((<AxiosError>e).response!.data).message}`);
+            const genericError = errorMsg.generic
+                .replace('{json}', JSON.parse((<AxiosError>e).response!.data).message);
+
+            channel.send(genericError);
         }
     }
 }

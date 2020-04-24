@@ -18,6 +18,15 @@
     "age": 19
   },
   {
+    "birthday": "September 22",
+    "color": "#774328",
+    "name": "Hiro Akiba (Mature)",
+    "description": "As Keitaro's childhood friend and best friend, Hiro has growing affection for Keitaro. As they grow up and face challenges after graduating, he dyed his hair back to its original color in order to have interview.",
+    "animal": "Raccoon",
+    "emoteId": "703285648165044234",
+    "age": 22
+  },
+  {
     "birthday": "January 21",
     "color": "#b11aff",
     "name": "Yoichi Yukimura",

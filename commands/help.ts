@@ -3,12 +3,15 @@
 
 import * as Discord from 'discord.js';
 import { ALIASES, COMMANDS } from '../bot';
+import * as localizedStrings from '../storage/localizedStrings.json';
 import Command from './base/command';
+
+const enStrings = localizedStrings.find(val => val.lang === 'en')!;
 
 export default class Help extends Command {
     constructor() {
-        super('help', 'info', 'Get the usage of any other command',
-            `Run \`help <command>\` to get usage instructions on \`<command>\`, if it exists. Run \`help list\` to list possible commands.`);
+        super('help', 'info', enStrings.texts.help.description,
+            enStrings.texts.help.usage);
     }
 
     run(client: Discord.Client, message: Discord.Message, args: string[]) {
@@ -20,7 +23,7 @@ export default class Help extends Command {
 
         if (commandName === 'list') {
             message.channel.send(
-                `Here is a list of all commands and their descriptions:\n${commandLists}`);
+                enStrings.texts.help.errors.show_list.replace('{commandLists}', commandLists));
             return;
         }
 
@@ -31,11 +34,16 @@ export default class Help extends Command {
         }
 
         if (!command) {
-            message.reply('There is no such command in my journal.');
+            message.reply(enStrings.texts.help.errors.no_command);
             return;
         }
 
-        message.channel.send(
-            `**Category:** \`${command!.Category}\`\n**Usage For Command:** \`${command!.Name}\`\n${command!.Usage}${command!.Alias && command!.Alias!.length ? `\n**Aliases:** \`${command!.Alias!}\`` : ''}`);
+        const result = enStrings.texts.help.result
+            .replace('{category}', command!.Category)
+            .replace('{name}', command!.Name)
+            .replace('{usage}', command!.Usage)
+            .replace('{aliases}', (command!.Alias && command!.Alias.length) ? `\n**Aliases:** \`${command!.Alias!}\`` : ``);
+
+        message.channel.send(result);
     }
 }

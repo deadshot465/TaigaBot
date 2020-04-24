@@ -66,6 +66,38 @@
           "generic": "<:TaigaAck2:700006264507465778> Guess something just went wrong."
         },
         "result": "<:chibitaiga:697893400891883531> According to Lee's calculations, %s is %d%s."
+      },
+      "dialog": {
+        "description": "Returns an image of a character in Camp Buddy saying anything you want",
+        "usage": "Run `dialog <background> <character> <message>` or `dialog <character> <message>` to give you an image of a Camp Buddy character with a custom dialog!\nAvailable backgrounds: `{backgrounds}`\nAvailable characters: `{characters}`",
+        "errors": {
+          "length_too_short": "This command requires two arguments: `dialog [background] <character> <text>` ([] is optional)",
+          "background_not_found": "Sorry, but I couldn't find `{background}` as a location\nAvailable backgrounds are: `{background}`.",
+          "character_not_found": "Sorry, but I don't think that `{character}` is a character in Camp Buddy\nAvailable characters are: `{characters}`.",
+          "no_message": "At least give me something to send, you dumbass.",
+          "message_too_long": "Sorry, the message limit is 120 characters <:TaigaAck2:700006264507465778>",
+          "wrong_character_set": "I don't do emotes, mentions, or non-latin characters",
+          "cooldown": "I only have two hands, not an octopus. Bother me again later. <:TaigaAngry:699705315519889479>",
+          "generic": "An error just happened. I blame Rhakon. <:TaigaLOL:700004692079542333> - {json}"
+        },
+        "result": "Here you go~!"
+      },
+      "enlarge": {
+        "description": "Returns an enlarged emote",
+        "usage": "Run `enlarge <emote>` to get the full link to `<emote>` at a large size.",
+        "errors": {
+          "no_emote": "What do you think I could do if you don't even give me an emote?"
+        },
+        "result": ""
+      },
+      "help": {
+        "description": "Get the usage of any other command",
+        "usage": "Run `help <command>` to get usage instructions on `<command>`, if it exists. Run `help list` to list possible commands.",
+        "errors": {
+          "show_list": "Here is a list of all commands and their descriptions:\n{commandLists}",
+          "no_command": "There is no such command in my journal."
+        },
+        "result": "**Category:** `{category}`\n**Usage For Command:** `{name}`\n{usage}{aliases}"
       }
     }
   }
