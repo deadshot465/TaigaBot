@@ -36,6 +36,9 @@
     <Content Include="auth.json">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="storage\localizedStrings.json">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="storage\oracles.json" />
     <Content Include="storage\randomMessages.json">
       <SubType>Code</SubType>
@@ -95,6 +98,9 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="storage\reactions.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="utility\adminUtility.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="utility\clientUtility.ts">

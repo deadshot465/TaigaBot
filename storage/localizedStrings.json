@@ -1,0 +1,72 @@
+[
+  {
+    "lang": "en",
+    "texts": {
+      "presence": [
+        "Handcrafting",
+        "Keitaro",
+        "Sculpting",
+        "Eating",
+        "Sleeping",
+        "Writing",
+        "Working out",
+        "Reading",
+        "F*p*ing",
+        "Why should I tell you, huh?",
+        "Making cookies",
+        "Tinkering",
+        "Campfiring",
+        "Bathing",
+        "Calling"
+      ],
+      "greetings": [
+        "{name} Hey dweeb, welcome to my fanclub server! <:TaigaSmug:702210822310723614>",
+        "Uh, hi, so you're Keitaro's friend, right? Cool, I'm Taiga. Nice to meet you, {name}! Pretty chill around here, so just hang out.",
+        "{name} Amateurs!",
+        "{name} Oh, so you're that new goody-two-shoes everyone's talking about?",
+        "Tch, what are you staring at, {name}? Hmph.",
+        "Hah, {name}! Welcome! Now I've got a new sidekick!",
+        "Hi, {name}! You look even dumber than Keitaro!",
+        "{name} Rule No.1: Only fast food here.",
+        "{name} As I was saying..."
+      ],
+      "random_responses": [
+        "Yeah, that's right!",
+        "Dummy...",
+        "Come on, hurry up!",
+        "What the actual fuck?",
+        "Don't sweat it.",
+        "Don't even think about it.",
+        "Later losers!",
+        "Amateurs!"
+      ],
+      "failed_messages": [
+        "What the actual fuck was that...",
+        "If you have time talking about gibberish, why not check the latest chapter of Winter's Splendor?",
+        "Ugh...What a cringe test.",
+        "GREAT, now I have something new to write on my journal.",
+        "Shit, `{command}` failed.",
+        "I know you are dumb, but not that dumb! You have inputted wrongly.",
+        "Tch! Nice try.",
+        "Can't you even type out a command correctly, idiot?",
+        "Hey dingbat, do the command right next time...What? It totally wasn't *my* fault!",
+        "I don't know which is worse, Eduard and Lee combined, or you."
+      ],
+      "cooldown": "You dumbass need {timeLeft} more second(s) before telling me to do the `{cmd}` command again.",
+      "execution_failure": "There was an error trying to execute that command!",
+      "cvt": {
+        "description": "Helps converting stuff",
+        "usage": "Run `cvt <target unit> <value><origin unit>` to convert `<value>` from `<origin unit>` to `<target unit>`.\nTemperature units to convert to are `{temps}` from those values.\nHeight units to convert to are `{heights}` from those same values as well.",
+        "errors": {
+          "length_too_short": "Temperature units to convert to are `{temps}` from those values.\nHeight units to convert to are `{heights}` from those same values as well.\nThe syntax is `{prefix}cvt <unit-to-convert-to> <value>`",
+          "invalid_unit": "<:Spray:701105694761418774> Valid units are `{units}`.",
+          "wrong_pattern": "<:TaigaUneasy2:700006812673638500> Not sure what you mean by `{input}`",
+          "operation_not_possible": "<:TaigaAck2:700006264507465778> That's not possible, you dummy.",
+          "is_nan": "<:TaigaAck2:700006264507465778> Even Lee would be unable to calculate that.",
+          "generic": "<:TaigaAck2:700006264507465778> Guess something just went wrong."
+        },
+        "result": "<:chibitaiga:697893400891883531> According to Lee's calculations, %s is %d%s."
+      }
+    }
+  }
+]

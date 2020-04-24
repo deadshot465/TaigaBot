@@ -7,20 +7,22 @@ import { PREFIX } from '../bot';
 import { CVT_PATTERN } from '../utility/patterns';
 import Command from './base/command';
 import { LOOKUP_LENGTH, LOOKUP_TEMPERATURE } from './lookupTables';
+import * as localizedStrings from '../storage/localizedStrings.json';
 
 const LENGTHS = ['km', 'm', 'cm', 'in', 'ft', 'mi', 'au'];
 const TEMPS = ['c', 'f', 'k'];
 const VALID_UNITS = [...TEMPS, ...LENGTHS];
 
+const enStrings = localizedStrings.find(val => val.lang === 'en')!;
+const cvtStrings = enStrings.texts.cvt;
+
 export default class Convert extends Command {
     constructor() {
-        super('cvt', 'util', 'Helps converting stuff',
-            `Run \`cvt <target unit> <value><origin unit>\` to convert \`<value>\` from \`<origin unit>\` to \`<target unit>\`.\nTemperature units to convert to are \`${TEMPS.join(
-                ", "
-            )}\` from those values.
-Height units to convert to are \`${LENGTHS.join(
-                ", "
-            )}\` from those same values as well.`.trim(), ['convert']);
+
+        let usage = cvtStrings.usage.replace('{temps}', TEMPS.join(', '));
+        usage = usage.replace('{heights}', LENGTHS.join(', '));
+
+        super('cvt', 'util', cvtStrings.description, usage.trim(), ['convert']);
     }
 
     run(client: Discord.Client, message: Discord.Message, args: string[]): void {
@@ -29,33 +31,37 @@ Height units to convert to are \`${LENGTHS.join(
 
         message.delete(deleteOps).catch(() => { });
 
+        const errorMsgs = cvtStrings.errors;
+        const lengthTooShort = errorMsgs.length_too_short
+            .replace('{temps}', TEMPS.join(', '))
+            .replace('{heights}', LENGTHS.join(', '))
+            .replace('{prefix}', PREFIX);
+
         if (args.length < 2) {
             channel
-                .send(`Temperature units to convert to are \`${TEMPS.join(
-                    ", "
-                )}\` from those values.
-Height units to convert to are \`${LENGTHS.join(
-                    ", "
-                )}\` from those same values as well.
-The syntax is \`${PREFIX}cvt <unit-to-convert-to> <value>\``.trim())
+                .send(lengthTooShort.trim())
                 .then(m => m.delete(deleteOps));
             return;
         }
 
         const targetUnit = args[0].toLowerCase();
 
+        const invalidUnit = errorMsgs.invalid_unit
+            .replace('{units}', VALID_UNITS.join(', '));
+
         if (!VALID_UNITS.includes(targetUnit)) {
-            channel.send(`<:Spray:701105694761418774> Valid units are \`${VALID_UNITS.join(
-                ", "
-            )}\`.`)
+            channel.send(invalidUnit)
                 .then(m => m.delete(deleteOps));
             return;
         }
 
         const input = args[1].toLowerCase();
 
+        const wrongPattern = errorMsgs.wrong_pattern
+            .replace('{input}', input);
+
         if (!CVT_PATTERN.test(input)) {
-            channel.send(`<:TaigaUneasy2:700006812673638500> Not sure what you mean by \`${input}\`.`)
+            channel.send(wrongPattern)
                 .then(m => m.delete(deleteOps));
             return;
         }
@@ -65,16 +71,17 @@ The syntax is \`${PREFIX}cvt <unit-to-convert-to> <value>\``.trim())
 
     private convert(targetUnit: string, input: string) {
         const [, sourceValue, sourceUnit] = CVT_PATTERN.exec(input)!;
+        const errorMsgs = cvtStrings.errors;
 
         if (!this.areCompatible(targetUnit, sourceUnit)) {
-            return `<:TaigaAck2:700006264507465778> That's not possible, you dummy.`;
+            return errorMsgs.operation_not_possible;
         }
 
         const tables = [LOOKUP_LENGTH, LOOKUP_TEMPERATURE];
 
         let numberToConvert = Number.parseFloat(sourceValue);
         if (Number.isNaN(numberToConvert))
-            return `<:TaigaAck2:700006264507465778> Even Lee would be unable to calculate that.`;
+            return errorMsgs.is_nan;
 
         for (const type of tables) {
             if (!type[targetUnit]) continue;
@@ -110,13 +117,13 @@ The syntax is \`${PREFIX}cvt <unit-to-convert-to> <value>\``.trim())
                     break;
             }
 
-            return format(`<:chibitaiga:697893400891883531> According to Lee's calculations, %s is %d%s`,
+            return format(cvtStrings.result,
                 sourceValue + this.unitToDisplay(sourceUnit),
                 Math.round(result * 100000) / 100000,
                 this.unitToDisplay(targetUnit));
         }
 
-        return `<:TaigaAck2:700006264507465778> Guess something just went wrong.`;
+        return errorMsgs.generic;
     }
 
     private areCompatible(target: string, src: string) {

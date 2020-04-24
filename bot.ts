@@ -24,7 +24,7 @@ import * as Discord from 'discord.js';
 import * as DotEnv from 'dotenv';
 import { readdirSync } from 'fs';
 import Command from './commands/base/command';
-import { ACTIVITIES, FAILED_MESSAGES, GREETINGS } from './storage/reactions';
+import * as localizedStrings from './storage/localizedStrings.json';
 import ClientUtility from './utility/clientUtility';
 import { getRandomInt } from './utility/helper';
 
@@ -47,6 +47,8 @@ const taiga = new Discord.Client({
     // We need to fetch all members to make sure that finderUtil works properly
     fetchAllMembers: true
 });
+
+const enStrings = localizedStrings.find(val => val.lang === 'en')!;
 
 export const COMMANDS = new Discord.Collection<string, Command>();
 export const ALIASES = new Discord.Collection<string, string>();
@@ -87,7 +89,7 @@ taiga.once('ready', () => {
     const presenceFn = () => {
         console.log('Setting presence');
 
-        const activity = ACTIVITIES[getRandomInt(0, ACTIVITIES.length)];
+        const activity = enStrings.texts.presence[getRandomInt(0, enStrings.texts.presence.length)];
 
         taiga.user?.setPresence({
             status: 'online',
@@ -112,7 +114,8 @@ taiga.on('guildMemberAdd', member => {
         const channel = member.guild.channels.resolve(id);
         if (!channel) continue;
 
-        const msg = GREETINGS[getRandomInt(0, GREETINGS.length)]
+        const greetings = enStrings.texts.greetings;
+        const msg = greetings[getRandomInt(0, greetings.length)]
             .replace('{name}', `<@${member.id || member.user!.id}>`);
 
         (<Discord.TextChannel>channel).send(msg);
@@ -170,7 +173,8 @@ taiga.on('message', async message => {
 
     // If we still didn't find a command, fail the command and return.
     if (!command) {
-        const msg = FAILED_MESSAGES[getRandomInt(0, FAILED_MESSAGES.length)]
+        const failedMessage = enStrings.texts.failed_messages;
+        const msg = failedMessage[getRandomInt(0, failedMessage.length)]
             .replace('{command}', cmd);
         message.channel.send(msg);
         return;
@@ -192,8 +196,11 @@ taiga.on('message', async message => {
 
         if (now < expirationTime) {
             const timeLeft = (expirationTime - now) / 1000;
+            let cooldownMsg = enStrings.texts.cooldown;
+            cooldownMsg = cooldownMsg.replace('{timeLeft}', timeLeft.toFixed(1));
+            cooldownMsg = cooldownMsg.replace('{cmd}', command!.Name);
             message
-                .reply(`You dumbass need ${timeLeft.toFixed(1)} more second(s) before telling me to do the \`${command!.Name}\` command again.`);
+                .reply(cooldownMsg);
             return;
         }
     }
@@ -208,7 +215,7 @@ taiga.on('message', async message => {
         await command!.run(taiga, message, args);
     } catch (error) {
         console.error(error);
-        message.reply('There was an error trying to execute that command!');
+        message.reply(enStrings.texts.execution_failure);
     }
 });
 
