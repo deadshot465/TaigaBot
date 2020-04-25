@@ -3,7 +3,8 @@
 
 import * as Discord from 'discord.js';
 import { format } from 'util';
-import { PREFIX } from '../bot';
+import { MEMBER_CONFIG, PREFIX } from '../bot';
+import IMemberConfig from '../interfaces/IMemberConfig';
 import * as localizedStrings from '../storage/localizedStrings.json';
 import { CVT_PATTERN } from '../utility/patterns';
 import Command from './base/command';
@@ -14,10 +15,12 @@ const TEMPS = ['c', 'f', 'k'];
 const VALID_UNITS = [...TEMPS, ...LENGTHS];
 
 const enStrings = localizedStrings.find(val => val.lang === 'en')!;
-const cvtStrings = enStrings.texts.cvt;
+const jpStrings = localizedStrings.find(val => val.lang === 'jp')!;
 
 export default class Convert extends Command {
     constructor() {
+
+        let cvtStrings = enStrings.texts.cvt;
 
         let usage = cvtStrings.usage.replace('{temps}', TEMPS.join(', '));
         usage = usage.replace('{heights}', LENGTHS.join(', '));
@@ -30,6 +33,9 @@ export default class Convert extends Command {
         const deleteOps = { timeout: 15 * 1000 };
 
         message.delete(deleteOps).catch(() => { });
+
+        const config: IMemberConfig = MEMBER_CONFIG.find(config => config.userId === message.author.id)!;
+        const cvtStrings = (config.lang === 'en') ? enStrings.texts.cvt : jpStrings.texts.cvt;
 
         const errorMsgs = cvtStrings.errors;
         const lengthTooShort = errorMsgs.length_too_short
@@ -66,11 +72,13 @@ export default class Convert extends Command {
             return;
         }
 
-        channel.send(this.convert(targetUnit, input)).then(m => m.delete(deleteOps));
+        channel.send(this.convert(targetUnit, input, message)).then(m => m.delete(deleteOps));
     }
 
-    private convert(targetUnit: string, input: string) {
+    private convert(targetUnit: string, input: string, message: Discord.Message) {
         const [, sourceValue, sourceUnit] = CVT_PATTERN.exec(input)!;
+        const config: IMemberConfig = MEMBER_CONFIG.find(config => config.userId === message.author.id)!;
+        const cvtStrings = (config.lang === 'en') ? enStrings.texts.cvt : jpStrings.texts.cvt;
         const errorMsgs = cvtStrings.errors;
 
         if (!this.areCompatible(targetUnit, sourceUnit)) {

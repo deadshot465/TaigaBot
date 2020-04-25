@@ -2,26 +2,34 @@
 // See bot.ts for the full notice.
 
 import * as Discord from 'discord.js';
+import { MEMBER_CONFIG } from '../bot';
 import ICharacterRouter from '../interfaces/ICharacterRouter';
+import IMemberConfig from '../interfaces/IMemberConfig';
+import * as localizedStrings from '../storage/localizedStrings.json';
 import * as valentines from '../storage/valentines.json';
 import { getRandomInt } from "../utility/helper";
 import Command from './base/command';
 
+const enStrings = localizedStrings.find(val => val.lang === 'en')!;
+const jpStrings = localizedStrings.find(val => val.lang === 'jp')!;
+
 export default class Valentine extends Command implements ICharacterRouter {
     constructor() {
-        super('valentine', 'info', 'Tells you your next valentine',
-            `Run \`valentine\` to get your next valentine.`, ['lover'], 5);
+        super('valentine', 'info', enStrings.texts.valentine.description,
+            enStrings.texts.valentine.usage, ['lover'], 5);
     }
 
     run(client: Discord.Client, message: Discord.Message, args: string[]): void {
-        const embedMessage = this.getEmbeddedMessage();
+        const embedMessage = this.getEmbeddedMessage(message);
+        const config: IMemberConfig = MEMBER_CONFIG.find(config => config.userId === message.author.id)!;
+        const valentineStrings = (config.lang === 'en') ? enStrings.texts.valentine : jpStrings.texts.valentine;
 
         embedMessage.content.setAuthor(message.member!.displayName,
             message.author.displayAvatarURL({ format: 'png' }));
 
         if (embedMessage.prefix.length > 0) {
             message.channel
-                .send(`**Bah, we're already dating and I'm the best. No chance for you, loser.**`)
+                .send(valentineStrings.infos.keitaro_header)
                 .then(msg => {
                     message.channel.send(embedMessage.content);
                 });
@@ -35,21 +43,28 @@ export default class Valentine extends Command implements ICharacterRouter {
         return name.split(/\s+/)[0];
     }
 
-    getEmbeddedMessage() {
+    getEmbeddedMessage(message: Discord.Message) {
         const valentine = this.getValentine();
         const isKeitaro = this.getFirstName(valentine.name) === 'Keitaro';
         const prefixSuffix = isKeitaro ? '~~' : '';
-        const footer = isKeitaro ? `See? Told you Keitaro is my boyfriend. Later loser.` :
-            `Don't fret if ${this.getFirstName(valentine.name)} isn't your type. Who knows, maybe it's time for a new favorite.`;
+        const config: IMemberConfig = MEMBER_CONFIG.find(config => config.userId === message.author.id)!;
+        const valentineStrings = (config.lang === 'en') ? enStrings.texts.valentine : jpStrings.texts.valentine;
+        const footer = isKeitaro ? valentineStrings.infos.keitaro_footer :
+            valentineStrings.infos.normal_footer.replace('{firstName}', this.getFirstName(valentine.name));
+
+        const valentineName = valentineStrings.infos.valentine
+            .replace('{name}', valentine.name)
+            .replace('{prefixSuffix}', prefixSuffix)
+            .replace('{prefixSuffix}', prefixSuffix);
 
         const content = new Discord.MessageEmbed()
             .setThumbnail(this.getEmoteUrl(valentine.emoteId))
             .setColor(valentine.color)
-            .setTitle(`${prefixSuffix}Your valentine is ${valentine.name}${prefixSuffix}`)
+            .setTitle(valentineName)
             .setDescription(`${prefixSuffix}${valentine.description}${prefixSuffix}`)
-            .addField('Age', `${prefixSuffix}${valentine.age}${prefixSuffix}`, true)
-            .addField('Birthday', `${prefixSuffix}${valentine.birthday}${prefixSuffix}`, true)
-            .addField('Animal Motif', `${prefixSuffix}${valentine.animal}${prefixSuffix}`, true)
+            .addField(valentineStrings.infos.age, `${prefixSuffix}${valentine.age}${prefixSuffix}`, true)
+            .addField(valentineStrings.infos.birthday, `${prefixSuffix}${valentine.birthday}${prefixSuffix}`, true)
+            .addField(valentineStrings.infos.animal_motif, `${prefixSuffix}${valentine.animal}${prefixSuffix}`, true)
             .setFooter(footer);
 
         return { content: content, prefix: prefixSuffix };

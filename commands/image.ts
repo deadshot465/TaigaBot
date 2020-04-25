@@ -3,45 +3,60 @@
 
 import Axios, { AxiosError } from 'axios';
 import * as Discord from 'discord.js';
+import { MEMBER_CONFIG } from '../bot';
+import IMemberConfig from '../interfaces/IMemberConfig';
 import IUnsplashSearchResult from '../interfaces/IUnsplashSearchResult';
+import * as localizedStrings from '../storage/localizedStrings.json';
 import { getRandomInt } from '../utility/helper';
 import Command from './base/command';
 
 const UNSPLASH_ITEM_PER_PAGE = 10;
+const enStrings = localizedStrings.find(val => val.lang === 'en')!;
+const jpStrings = localizedStrings.find(val => val.lang === 'jp')!;
 
 export default class Image extends Command {
     constructor() {
-        super('image', 'util', 'Get a random image based on a keyword',
-            `Run \`image <keyword>\` to get a random image. Only one keyword is permitted.`,
+
+        super('image', 'util', enStrings.texts.image.description,
+            enStrings.texts.image.usage,
             ['img']);
     }
 
     async run(client: Discord.Client, message: Discord.Message, args: string[]) {
         const { channel } = message;
+        const config: IMemberConfig = MEMBER_CONFIG.find(config => config.userId === message.author.id)!;
+        const imageStrings = (config.lang === 'en') ? enStrings.texts.image : jpStrings.texts.image;
         let keyword = '';
 
         if (args.length > 1) {
-            channel.send(`I told you that only one keyword can be used. You're really dumb. <:TaigaAnnoyed:702646568146436187>`);
+            channel.send(imageStrings.errors.length_too_long);
             return;
         }
         else if (args.length <= 0) {
-            channel.send(`Did you read the help? No keyword! I'd just give you a burger.`);
+            channel.send(imageStrings.errors.length_too_short);
             keyword = 'hamburger';
         }
         else {
             keyword = args.shift()!.toLowerCase();
         }
 
-        const attachment = await Image.getImage(keyword)
+        const attachment = await Image.getImage(keyword, message)
         if (attachment) {
             if (attachment instanceof Discord.MessageAttachment)
-                message.reply(`Here is your image for ${keyword}`, attachment);
+            {
+                const resultMsg = imageStrings.result.replace('{keyword}', keyword);
+                message.reply(resultMsg, attachment);
+            }
             else
                 message.reply(attachment);
         }
     }
 
-    static async getImage(keyword: string): Promise<Discord.MessageAttachment | string | null | undefined> {
+    static async getImage(keyword: string, message: Discord.Message): Promise<Discord.MessageAttachment | string | null | undefined> {
+
+        const config: IMemberConfig = MEMBER_CONFIG.find(config => config.userId === message.author.id)!;
+        const imageStrings = (config.lang === 'en') ? enStrings.texts.image : jpStrings.texts.image;
+
         let token = process.env.UNSPLASH_TOKEN;
         let attachment: Discord.MessageAttachment | null | undefined;
 
@@ -63,7 +78,7 @@ export default class Image extends Command {
                 console.log(`Total: ${total}`);
 
                 if (!total) {
-                    return `Sorry. Not my problem. Your keyword is too weird that I can't find any image.`;
+                    return imageStrings.errors.no_result;
                 }
 
                 // Limit to the first 25% pages.
@@ -90,7 +105,9 @@ export default class Image extends Command {
                 attachment = new Discord.MessageAttachment(Buffer.from(photo.data), 'image.jpg');
                 return attachment;
             } catch (e) {
-                return `An error occured. I blame Rhakon again. <:TaigaLOL:700004692079542333> - ${JSON.parse((<AxiosError>e).response!.data).message}`;
+                const genericError = imageStrings.errors.generic
+                    .replace('{json}', JSON.parse((<AxiosError>e).response!.data).message);
+                return genericError;
             }
         }
         else

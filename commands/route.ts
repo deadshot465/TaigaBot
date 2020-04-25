@@ -2,23 +2,27 @@
 // See bot.ts for the full notice.
 
 import * as Discord from 'discord.js';
+import { MEMBER_CONFIG } from '../bot';
 import ICharacterRouter from '../interfaces/ICharacterRouter';
+import IMemberConfig from '../interfaces/IMemberConfig';
+import * as localizedStrings from '../storage/localizedStrings.json';
 import * as routes from '../storage/routes.json';
 import { getRandomInt } from '../utility/helper';
 import Command from './base/command';
 
+const enStrings = localizedStrings.find(val => val.lang === 'en')!;
+const jpStrings = localizedStrings.find(val => val.lang === 'jp')!;
+
 export default class Route extends Command implements ICharacterRouter {
 
-    #endings = ["Perfect", "Good", "Bad", "Worst"];
-
     constructor() {
-        super('route', 'info', 'Tells you what route to play next',
-            `Run \`route\` to get which route you want to play next.`, undefined, 5);
+        super('route', 'info', enStrings.texts.route.description,
+            enStrings.texts.route.usage, undefined, 5);
     }
 
     run(client: Discord.Client, message: Discord.Message, args: string[]): void {
 
-        const embedMessage = this.getEmbeddedMessage();
+        const embedMessage = this.getEmbeddedMessage(message);
 
         embedMessage.content.setAuthor(message.member!.displayName,
             message.author.displayAvatarURL({ format: 'png' }));
@@ -30,19 +34,27 @@ export default class Route extends Command implements ICharacterRouter {
         return name.split(/\s+/)[0];
     }
 
-    getEmbeddedMessage() {
-
+    getEmbeddedMessage(message: Discord.Message) {
+        const config: IMemberConfig = MEMBER_CONFIG.find(config => config.userId === message.author.id)!;
+        const routeStrings = (config.lang === 'en') ? enStrings.texts.route : jpStrings.texts.route;
         const character = this.getRoute();
+
+        const title = routeStrings.infos.next
+            .replace('{name}', character.name)
+            .replace('{ending}', this.getEnding(message));
+
+        const footer = routeStrings.infos.footer
+            .replace('{firstName}', this.getFirstName(character.name));
 
         const content = new Discord.MessageEmbed()
             .setThumbnail(this.getEmoteUrl(character.emoteId))
             .setColor(character.color)
-            .setTitle(`Next: ${character.name}, ${this.getEnding()} Ending`)
+            .setTitle(title)
             .setDescription(character.description)
-            .addField('Age', character.age, true)
-            .addField('Birthday', character.birthday, true)
-            .addField('Animal Motif', character.animal, true)
-            .setFooter(`Play ${this.getFirstName(character.name)}'s route next. All bois are best bois.`);
+            .addField(routeStrings.infos.age, character.age, true)
+            .addField(routeStrings.infos.birthday, character.birthday, true)
+            .addField(routeStrings.infos.animal_motif, character.animal, true)
+            .setFooter(footer);
 
         return { content: content, prefix: '' };
     }
@@ -51,8 +63,11 @@ export default class Route extends Command implements ICharacterRouter {
         return `https://cdn.discordapp.com/emojis/${emoteId}.gif?v=1`;
     }
 
-    private getEnding() {
-        return this.#endings[getRandomInt(0, this.#endings.length)];
+    private getEnding(message: Discord.Message) {
+        const config: IMemberConfig = MEMBER_CONFIG.find(config => config.userId === message.author.id)!;
+        const routeStrings = (config.lang === 'en') ? enStrings.texts.route : jpStrings.texts.route;
+        return routeStrings
+            .infos.endings[getRandomInt(0, routeStrings.infos.endings.length)];
     }
 
     private getRoute() {

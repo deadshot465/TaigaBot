@@ -94,10 +94,10 @@
     <TypeScriptCompile Include="commands\valentine.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="interfaces\IUnsplashSearchResult.ts">
+    <TypeScriptCompile Include="interfaces\IMemberConfig.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="storage\reactions.ts">
+    <TypeScriptCompile Include="interfaces\IUnsplashSearchResult.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="utility\adminUtility.ts">

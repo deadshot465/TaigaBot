@@ -2,11 +2,13 @@
 // See bot.ts for the full notice.
 
 import * as Discord from 'discord.js';
-import { ALIASES, COMMANDS } from '../bot';
+import { ALIASES, COMMANDS, MEMBER_CONFIG } from '../bot';
+import IMemberConfig from '../interfaces/IMemberConfig';
 import * as localizedStrings from '../storage/localizedStrings.json';
 import Command from './base/command';
 
 const enStrings = localizedStrings.find(val => val.lang === 'en')!;
+const jpStrings = localizedStrings.find(val => val.lang === 'jp')!;
 
 export default class Help extends Command {
     constructor() {
@@ -16,6 +18,8 @@ export default class Help extends Command {
 
     run(client: Discord.Client, message: Discord.Message, args: string[]) {
         const commandName = args[0] || 'help';
+        const config: IMemberConfig = MEMBER_CONFIG.find(config => config.userId === message.author.id)!;
+        const helpStrings = (config.lang === 'en') ? enStrings.texts.help : jpStrings.texts.help;
 
         const commandLists = COMMANDS.map(cmd => {
             return ` - **${cmd.Category}:** \`${cmd.Name}\`: *${cmd.Description}*`;
@@ -23,7 +27,7 @@ export default class Help extends Command {
 
         if (commandName === 'list') {
             message.channel.send(
-                enStrings.texts.help.errors.show_list.replace('{commandLists}', commandLists));
+                helpStrings.errors.show_list.replace('{commandLists}', commandLists));
             return;
         }
 
@@ -34,11 +38,11 @@ export default class Help extends Command {
         }
 
         if (!command) {
-            message.reply(enStrings.texts.help.errors.no_command);
+            message.reply(helpStrings.errors.no_command);
             return;
         }
 
-        const result = enStrings.texts.help.result
+        const result = helpStrings.result
             .replace('{category}', command!.Category)
             .replace('{name}', command!.Name)
             .replace('{usage}', command!.Usage)

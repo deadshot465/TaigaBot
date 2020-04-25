@@ -5,7 +5,7 @@ import * as Discord from 'discord.js';
 
 export default interface ICharacterRouter {
     getFirstName(name: string): string;
-    getEmbeddedMessage(): {
+    getEmbeddedMessage(message: Discord.Message): {
         content: Discord.MessageEmbed,
         prefix: string
     };

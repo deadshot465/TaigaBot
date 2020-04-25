@@ -3,6 +3,8 @@
 
 import axios, { AxiosError } from 'axios';
 import * as Discord from 'discord.js';
+import { MEMBER_CONFIG } from '../bot';
+import IMemberConfig from '../interfaces/IMemberConfig';
 import * as localizedStrings from '../storage/localizedStrings.json';
 import { EMOJI_REGEX, EMOTE_MENTIONS_REGEX, NONASCII_REGEX } from '../utility/patterns';
 import Command from './base/command';
@@ -22,6 +24,7 @@ const backgroundString = backgrounds.join("`, `");
 const charactersString = characters.join("`, `");
 
 const enStrings = localizedStrings.find(val => val.lang === 'en')!;
+const jpStrings = localizedStrings.find(val => val.lang === 'jp')!;
 
 export default class Dialog extends Command {
     constructor() {
@@ -36,10 +39,9 @@ export default class Dialog extends Command {
 
     async run(client: Discord.Client, message: Discord.Message, args: string[]) {
         const { channel } = message;
-
         const now = Date.now();
-
-        const dialogStrings = enStrings.texts.dialog;
+        const config: IMemberConfig = MEMBER_CONFIG.find(config => config.userId === message.author.id)!;
+        const dialogStrings = (config.lang === 'en') ? enStrings.texts.dialog : jpStrings.texts.dialog;
         const errorMsg = dialogStrings.errors;
 
         if (args.length < 2) {

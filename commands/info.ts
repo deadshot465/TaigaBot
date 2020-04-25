@@ -2,12 +2,15 @@
 // See bot.ts for the full notice.
 
 import * as Discord from 'discord.js';
+import * as localizedStrings from '../storage/localizedStrings.json';
 import Command from './base/command';
+
+const enStrings = localizedStrings.find(val => val.lang === 'en')!;
 
 export default class Info extends Command {
     constructor() {
-        super('info', 'info', 'Shows information about the Taiga bot',
-            `Show information about the Taiga bot`, ['credits', 'bot']);
+        super('info', 'info', enStrings.texts.info.description,
+            enStrings.texts.info.usage, ['credits', 'bot']);
     }
 
     run(client: Discord.Client, message: Discord.Message, args: string[]) {

@@ -3,9 +3,11 @@
 
 import Axios from 'axios';
 import * as Discord from 'discord.js';
+import { MEMBER_CONFIG } from '../bot';
 import Image from '../commands/image';
+import IMemberConfig from '../interfaces/IMemberConfig';
+import * as localizedStrings from '../storage/localizedStrings.json';
 import * as randomMessages from '../storage/randomMessages.json';
-import { RANDOM_RESPONSES } from '../storage/reactions';
 import { getRandomInt } from './helper';
 import { EMOTE_MENTIONS_REGEX } from './patterns';
 
@@ -52,6 +54,9 @@ const BRANDON_REACTIONS = [
     `If Yuri joins, she will be kicked on sight. I don't want her bugging me when I'm having my Keitaro time.`
 ];
 
+const enStrings = localizedStrings.find(val => val.lang === 'en')!;
+const jpStrings = localizedStrings.find(val => val.lang === 'jp')!;
+
 export default class ClientUtility {
     
     static async randomMsgHandler(message: Discord.Message) {
@@ -59,6 +64,8 @@ export default class ClientUtility {
         if (message.author.bot) return;
 
         const content = message.content.toLowerCase();
+        const config: IMemberConfig = MEMBER_CONFIG.find(config => config.userId === message.author.id)!;
+        const responseStrings = (config.lang === 'en') ? enStrings : jpStrings;
 
         if (this.isSpecialized()) {
             if (content.includes('hiro')) {
@@ -81,7 +88,7 @@ export default class ClientUtility {
             }
             else if (content.includes('aiden')) {
 
-                const attachment = Image.getImage('hamburger');
+                const attachment = Image.getImage('hamburger', message);
 
                 message.channel.send(`Three orders of double-quarter-pounder cheeseburgers! Two large fries and one large soda!\n` +
                     `Burger patties well-done, three slices of pickles for each! No mayonnaise! Just ketchup and mustard!`)
@@ -101,7 +108,8 @@ export default class ClientUtility {
             }
         }
         else {
-            const response = RANDOM_RESPONSES[getRandomInt(0, RANDOM_RESPONSES.length)];
+            const response = responseStrings.texts
+                .random_responses[getRandomInt(0, responseStrings.texts.random_responses.length)];
             message.channel.send(response);
         }
     }

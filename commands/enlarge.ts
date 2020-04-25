@@ -2,11 +2,14 @@
 // See bot.ts for the full notice.
 
 import * as Discord from 'discord.js';
+import { MEMBER_CONFIG } from '../bot';
+import IMemberConfig from '../interfaces/IMemberConfig';
 import * as localizedStrings from '../storage/localizedStrings.json';
 import { EMOTE_ID_REGEX, EMOTE_IS_ANIMATED_REGEX } from '../utility/patterns';
 import Command from './base/command';
 
 const enStrings = localizedStrings.find(val => val.lang === 'en')!;
+const jpStrings = localizedStrings.find(val => val.lang === 'jp')!;
 
 export default class Enlarge extends Command {
     constructor() {
@@ -15,9 +18,13 @@ export default class Enlarge extends Command {
     }
 
     async run(client: Discord.Client, message: Discord.Message, args: string[]) {
+
+        const config: IMemberConfig = MEMBER_CONFIG.find(config => config.userId === message.author.id)!;
+        const enlargeStrings = (config.lang === 'en') ? enStrings.texts.enlarge : jpStrings.texts.enlarge;
+
         if (!EMOTE_ID_REGEX.test(args[0])) {
             message.channel.send(
-                enStrings.texts.enlarge.errors.no_emote
+                enlargeStrings.errors.no_emote
             );
             return;
         }

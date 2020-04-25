@@ -1,0 +1,37 @@
+[
+    {
+        "user": {
+            "id": "408658219033034753",
+            "bot": false,
+            "username": "snailslider",
+            "discriminator": "3461",
+            "avatar": "973b08e2e67ed7d858d5972b935575f8",
+            "lastMessageChannelID": null,
+            "createdTimestamp": 1517502111920,
+            "defaultAvatarURL": "https://cdn.discordapp.com/embed/avatars/1.png",
+            "tag": "snailslider#3461",
+            "avatarURL": "https://cdn.discordapp.com/avatars/408658219033034753/973b08e2e67ed7d858d5972b935575f8.webp",
+            "displayAvatarURL": "https://cdn.discordapp.com/avatars/408658219033034753/973b08e2e67ed7d858d5972b935575f8.webp"
+        },
+        "userId": "408658219033034753",
+        "lang": "jp"
+    },
+    {
+        "user": {
+            "id": "297195101753573380",
+            "bot": false,
+            "username": "Chehui Chou",
+            "discriminator": "1250",
+            "avatar": "76f55a3a3e58414f97cd1018b6da41f3",
+            "flags": 0,
+            "lastMessageChannelID": "700003813981028433",
+            "createdTimestamp": 1490927233876,
+            "defaultAvatarURL": "https://cdn.discordapp.com/embed/avatars/0.png",
+            "tag": "Chehui Chou#1250",
+            "avatarURL": "https://cdn.discordapp.com/avatars/297195101753573380/76f55a3a3e58414f97cd1018b6da41f3.webp",
+            "displayAvatarURL": "https://cdn.discordapp.com/avatars/297195101753573380/76f55a3a3e58414f97cd1018b6da41f3.webp"
+        },
+        "userId": "297195101753573380",
+        "lang": "en"
+    }
+]

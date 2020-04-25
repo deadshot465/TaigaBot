@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "lang": "en",
     "texts": {
@@ -72,7 +72,7 @@
         "usage": "Run `dialog <background> <character> <message>` or `dialog <character> <message>` to give you an image of a Camp Buddy character with a custom dialog!\nAvailable backgrounds: `{backgrounds}`\nAvailable characters: `{characters}`",
         "errors": {
           "length_too_short": "This command requires two arguments: `dialog [background] <character> <text>` ([] is optional)",
-          "background_not_found": "Sorry, but I couldn't find `{background}` as a location\nAvailable backgrounds are: `{background}`.",
+          "background_not_found": "Sorry, but I couldn't find `{background}` as a location\nAvailable backgrounds are: `{backgrounds}`.",
           "character_not_found": "Sorry, but I don't think that `{character}` is a character in Camp Buddy\nAvailable characters are: `{characters}`.",
           "no_message": "At least give me something to send, you dumbass.",
           "message_too_long": "Sorry, the message limit is 120 characters <:TaigaAck2:700006264507465778>",
@@ -98,6 +98,288 @@
           "no_command": "There is no such command in my journal."
         },
         "result": "**Category:** `{category}`\n**Usage For Command:** `{name}`\n{usage}{aliases}"
+      },
+      "image": {
+        "description": "Get a random image based on a keyword",
+        "usage": "Run `image <keyword>` to get a random image. Only one keyword is permitted.",
+        "errors": {
+          "length_too_short": "Did you read the help? No keyword! I'd just give you a burger.",
+          "length_too_long": "I told you that only one keyword can be used. You're really dumb. <:TaigaAnnoyed:702646568146436187>",
+          "no_result": "Sorry. Not my problem. Your keyword is too weird that I can't find any image.",
+          "generic": "An error occured. I blame Rhakon again. <:TaigaLOL:700004692079542333> - {json}"
+        },
+        "result": "Here is your image for {keyword}"
+      },
+      "info": {
+        "description": "Shows information about the Taiga bot",
+        "usage": "Show information about the Taiga bot.",
+        "errors": {
+        },
+        "result": ""
+      },
+      "oracle": {
+        "description": "Draw an oracle and know the future of something on your mind",
+        "usage": "Run `oracle` to draw an oracle and know your fortune.",
+        "errors": {
+        },
+        "uis": {
+          "no": "No",
+          "meaning": "Meaning"
+        },
+        "result": "Wish you good luck!"
+      },
+      "ping": {
+        "description": "Returns latency and API ping",
+        "usage": "Run `ping` to get the current latency and API ping.",
+        "errors": {
+        },
+        "infos": {
+          "pinging": "\uD83C\uDFD3 Pinging....",
+          "responding": "\uD83C\uDFD3 Pong!\nLatency is: {latency}ms. API Latency is: {apiLatency}ms."
+        },
+        "result": ""
+      },
+      "route": {
+        "description": "Tells you what route to play next",
+        "usage": "Run `route` to get which route you want to play next.",
+        "errors": {
+        },
+        "infos": {
+          "endings": [
+            "Perfect",
+            "Good",
+            "Bad",
+            "Worst"
+          ],
+          "next": "Next: {name}, {ending} Ending",
+          "age": "Age",
+          "birthday": "Birthday",
+          "animal_motif": "Animal Motif",
+          "footer": "Play {firstName}'s route next. All bois are best bois."
+        },
+        "result": ""
+      },
+      "valentine": {
+        "description": "Tells you your next valentine",
+        "usage": "Run `valentine` to get your next valentine.",
+        "errors": {
+        },
+        "infos": {
+          "keitaro_header": "**Bah, we're already dating and I'm the best. No chance for you, loser.**",
+          "keitaro_footer": "See? Told you Keitaro is my boyfriend. Later loser.",
+          "normal_footer": "Don't fret if {firstName} isn't your type. Who knows, maybe it's time for a new favorite.",
+          "age": "Age",
+          "birthday": "Birthday",
+          "animal_motif": "Animal Motif",
+          "valentine": "{prefixSuffix}Your valentine is {name}{prefixSuffix}"
+        },
+        "result": ""
+      },
+      "ship": {
+        "description": "Ship two users",
+        "usage": "Run `ship <user1> <user2>` to find out the compatibility between the two users!",
+        "errors": {
+          "length_too_short": "This command requires two arguments: `ship <user1> <user2>`",
+          "user_not_found": "No user found for input {user}",
+          "self_match": "You're a perfect match... for yourself!"
+        },
+        "infos": {
+          "title": "{user1} and {user2}",
+          "score": "Your love score is {score}"
+        },
+        "result": ""
+      }
+    }
+  },
+  {
+    "lang": "jp",
+    "texts": {
+      "presence": [
+        "Handcrafting",
+        "Keitaro",
+        "Sculpting",
+        "Eating",
+        "Sleeping",
+        "Writing",
+        "Working out",
+        "Reading",
+        "F*p*ing",
+        "Why should I tell you, huh?",
+        "Making cookies",
+        "Tinkering",
+        "Campfiring",
+        "Bathing",
+        "Calling"
+      ],
+      "greetings": [
+        "{name} Hey dweeb, welcome to my fanclub server! <:TaigaSmug:702210822310723614>",
+        "Uh, hi, so you're Keitaro's friend, right? Cool, I'm Taiga. Nice to meet you, {name}! Pretty chill around here, so just hang out.",
+        "{name} Amateurs!",
+        "{name} Oh, so you're that new goody-two-shoes everyone's talking about?",
+        "Tch, what are you staring at, {name}? Hmph.",
+        "Hah, {name}! Welcome! Now I've got a new sidekick!",
+        "Hi, {name}! You look even dumber than Keitaro!",
+        "{name} Rule No.1: Only fast food here.",
+        "{name} As I was saying..."
+      ],
+      "random_responses": [
+        "そう、そういうこと！",
+        "アホか…",
+        "早くしろ！",
+        "なんとバカバカしいこと…",
+        "黙れ！",
+        "そう簡単にできるとは思わないでよ。",
+        "負け犬！",
+        "無能だ、おまえは！"
+      ],
+      "failed_messages": [
+        "馬鹿な…",
+        "くだらんことを言う時間があったら、せめてウィンタースプレンダーを読んでくれ",
+        "もうここから逃げ出したい…",
+        "新しい記事の素材をもらった。よかったな。",
+        "クソか。`{command}`ていうのはできるわけねぇだろ。",
+        "お前は確かに大馬鹿だけど、これほどまでの馬鹿とは思わなかった。",
+        "いいぜ。試してみろ。",
+        "正しい命令を出すのもできねぇの？情けない。",
+        "おい、馬鹿野郎。今度正しい命令を出してみれば？俺とは絶対関係ないよ。",
+        "さてと、どっちがもっとやばいかな？エデュアルドと李、それともお前か？"
+      ],
+      "cooldown": "馬鹿野郎！もう{timeLeft}秒ぐらい黙ってくれ。その前俺は絶対`{cmd}`をしねぇよ。",
+      "execution_failure": "あの馬鹿馬鹿しい命令を実行するときちょっとやばいことが出てきた。",
+      "cvt": {
+        "description": "測定単位を変換する",
+        "usage": "`cvt <対象単位> <値><ソース単位>`を実行し、`<値>`を`<ソース単位>`から`<対象単位>`に変換する。\n変換できる温度の単位は`{temps}`の値だ。\n変換できる高さの単位は`{heights}`の値だ。",
+        "errors": {
+          "length_too_short": "変換できる温度の単位は`{temps}`の値だ。\n変換できる高さの単位は`{heights}`の値だ。\n構文は`{prefix}cvt <対象単位> <値>`",
+          "invalid_unit": "<:Spray:701105694761418774> 可能な単位は`{units}`だ。",
+          "wrong_pattern": "<:TaigaUneasy2:700006812673638500> `{input}`の意味わからん。",
+          "operation_not_possible": "<:TaigaAck2:700006264507465778> あれはできるわけねぇだろう。クソか。",
+          "is_nan": "<:TaigaAck2:700006264507465778> 李も計算できないだろう。",
+          "generic": "<:TaigaAck2:700006264507465778> なんかやばいことが出てきたらしい。"
+        },
+        "result": "<:chibitaiga:697893400891883531> 李の計算により、%sは%d%sだ。"
+      },
+      "dialog": {
+        "description": "好きなキャップバディ同士に自分が言いたいことを言わせる",
+        "usage": "`dialog <背景> <キャラクター> <メッセージ>`もしくは`dialog <キャラクター> <メッセージ>`を実行し、好きなキャップバディのキャラクターに自分が言いたいことを言わせる！\n可能の背景は：`{backgrounds}`\n可能のキャラクターは：`{characters}`",
+        "errors": {
+          "length_too_short": "この命令を使う際は二つの引数が必要だ：`dialog [背景] <キャラクター> <テキスト>` ([]は選択可能)",
+          "background_not_found": "ごめん、`{background}`という場所は見つからなかった。\n可能の背景は：`{backgrounds}`。",
+          "character_not_found": "ごめん、キャンプバディには`{character}`というキャラクターはいないよ。\n可能のキャラクターは：`{characters}`。",
+          "no_message": "せめて何が言いたいのか教えてくれ、馬鹿野郎。",
+          "message_too_long": "わるい、メッセージの制限は120文字数 <:TaigaAck2:700006264507465778>",
+          "wrong_character_set": "絵文字、メンションとラテン文字以外の言語や文字はしねぇよ。",
+          "cooldown": "俺は両手しかないだろう。タコでもないし。少し黙ってくれ <:TaigaAngry:699705315519889479>",
+          "generic": "エラーが出てきた。絶対Rhakonのせいだ。 <:TaigaLOL:700004692079542333> - {json}"
+        },
+        "result": "ほらー"
+      },
+      "enlarge": {
+        "description": "拡大された絵文字を取得する",
+        "usage": "`enlarge <絵文字>`を実行し、オリジナルサイズの`<絵文字>`のリンクを取得する。",
+        "errors": {
+          "no_emote": "絵文字でもくれないくせに俺に何を期待するのか？もうちょっと頭使え！"
+        },
+        "result": ""
+      },
+      "help": {
+        "description": "他の命令の説明を取得する",
+        "usage": "`help <命令>`を実行し、`<命令>`の使い方を取得する（もしその命令が存在するなら）。`help list`を実行すると、可能の命令リストを取得できる",
+        "errors": {
+          "show_list": "以下はすべての命令のリストとそれぞれの説明：\n{commandLists}",
+          "no_command": "俺の辞書にはそういう命令が書いてないぞ"
+        },
+        "result": "**種類：** `{category}`\n**使い方：** `{name}`\n{usage}{aliases}"
+      },
+      "image": {
+        "description": "キーワード検索で乱数の画像を取得する",
+        "usage": "`image <キーワード>`を実行して乱数の画像を取得する。キーワードは一つのみ。",
+        "errors": {
+          "length_too_short": "おい、ちゃんと説明を読んだ？キーワードがねぇぞ！いいだろう、バーガーあげるわ。",
+          "length_too_long": "キーワードは一つのみって言っただろう！本当に脳みそが大丈夫か？ <:TaigaAnnoyed:702646568146436187>",
+          "no_result": "俺の問題じゃない。お前のキーワードはおかしいすぎた。何も見つからなかった。",
+          "generic": "おっと、エラーが出てきた。絶対Rhakonのせいだ。 <:TaigaLOL:700004692079542333> - {json}"
+        },
+        "result": "これはお前が探している{keyword}の画像だ。"
+      },
+      "info": {
+        "description": "赤虎たいがの情報を表示する",
+        "usage": "俺様の情報を表示する。",
+        "errors": {
+        },
+        "result": ""
+      },
+      "oracle": {
+        "description": "浅草寺のおみくじを引いて占いをする",
+        "usage": "`oracle`を実行し、自分の運命を占う。",
+        "errors": {
+        },
+        "uis": {
+          "no": "番号",
+          "meaning": "意味"
+        },
+        "result": "グッドラック！"
+      },
+      "ping": {
+        "description": "反応時間とAPIのピング値を取得する",
+        "usage": "`ping`を実行し、今の反応時間とピング値を取得する。",
+        "errors": {
+        },
+        "infos": {
+          "pinging": "\uD83C\uDFD3 ピン…",
+          "responding": "\uD83C\uDFD3 ポン！\n反応時間は：{latency}ミリ秒。API反応時間は：{apiLatency}ミリ秒。"
+        },
+        "result": ""
+      },
+      "route": {
+        "description": "次は誰のルートをプレイするべきか、教えてやろう",
+        "usage": "`route`を実行し、次は誰のルートをプレイするべきかを教える。",
+        "errors": {
+        },
+        "infos": {
+          "endings": [
+            "パーフェクト",
+            "グッド",
+            "バッド",
+            "最悪な"
+          ],
+          "next": "次：{name}、{ending}エンディング",
+          "age": "年齢",
+          "birthday": "誕生日",
+          "animal_motif": "動物モチーフ",
+          "footer": "次は{firstName}のルートをプレイしろ。すべての男の子は立派な男の子だ。"
+        },
+        "result": ""
+      },
+      "valentine": {
+        "description": "次のバレンタインを教える",
+        "usage": "`valentine`を実行し、次のバレンタインを取得する",
+        "errors": {
+        },
+        "infos": {
+          "keitaro_header": "**ちぇ、慶太郎は俺の彼氏だ。君はチャンスがないだ。**",
+          "keitaro_footer": "だろう？慶太郎は俺の彼氏って言っただろう。じゃね、負け犬。",
+          "normal_footer": "{firstName}はお前のタイプじゃなくても悩まないで。新しい恋人やタイプを試しても別に悪くないだろう。",
+          "age": "年齢",
+          "birthday": "誕生日",
+          "animal_motif": "動物モチーフ",
+          "valentine": "{prefixSuffix}お前のバレンタインは{name}{prefixSuffix}"
+        },
+        "result": ""
+      },
+      "ship": {
+        "description": "二人のユーザーに恋人をさせてみる",
+        "usage": "`ship <ユーザー１> <ユーザー２>`を実行し、もしこの二人が恋人になったら成功確率は一体どれくらいのかを調べる。",
+        "errors": {
+          "length_too_short": "この命令は二つの引数は必要だ：`ship <ユーザー１> <ユーザー２>`",
+          "user_not_found": "{user}というユーザーがいない",
+          "self_match": "自分と自分なら完璧な関係しかないだろう。ばーかー"
+        },
+        "infos": {
+          "title": "{user1}と{user2}",
+          "score": "お前らの恋愛スコアは{score}だ"
+        },
+        "result": ""
       }
     }
   }

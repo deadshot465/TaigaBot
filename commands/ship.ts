@@ -3,12 +3,17 @@
 
 import Axios from 'axios';
 import * as Discord from 'discord.js';
+import * as localizedStrings from '../storage/localizedStrings.json';
 import * as fs from 'fs';
 import * as messages from '../storage/shipMessages.json';
 import { escapeUsername, findMembers } from '../utility/helper';
 import Command from './base/command';
+import IMemberConfig from '../interfaces/IMemberConfig';
+import { MEMBER_CONFIG } from '../bot';
 
 const filePath = './storage/riggedShips.json';
+const enStrings = localizedStrings.find(val => val.lang === 'en')!;
+const jpStrings = localizedStrings.find(val => val.lang === 'jp')!;
 
 interface ShipData {
     score: number,
@@ -19,8 +24,7 @@ export default class Ship extends Command {
     #riggedPairs: Array<Array<string>>;
 
     constructor() {
-        super('ship', 'fun', 'Ship two users',
-            `Run \`ship <user1> <user2>\` to find out the compatibility between the two users!`);
+        super('ship', 'fun', enStrings.texts.ship.description, enStrings.texts.ship.usage);
 
         if (fs.existsSync(filePath)) {
             const rawData = fs.readFileSync(filePath, 'utf8');
@@ -33,16 +37,18 @@ export default class Ship extends Command {
 
     async run(client: Discord.Client, message: Discord.Message, args: string[]) {
         const { channel, guild } = message;
+        const config: IMemberConfig = MEMBER_CONFIG.find(config => config.userId === message.author.id)!;
+        const shipStrings = (config.lang === 'en') ? enStrings.texts.ship : jpStrings.texts.ship;
 
         if (args.length < 2) {
-            channel.send('This command requires two arguments: `ship <user1> <user2>`.');
+            channel.send(shipStrings.errors.length_too_short);
             return;
         }
 
         const [target1] = findMembers(args[0], guild);
 
         if (!target1) {
-            channel.send(`No user found for input ${args[0]}`);
+            channel.send(shipStrings.errors.user_not_found.replace('{user}', args[0]));
             return;
         }
 
@@ -50,14 +56,14 @@ export default class Ship extends Command {
         const target2 = this.findNextUserIfSame(target1, seconds);
 
         if (!target2) {
-            channel.send(`No user found for input ${args[1]}`);
+            channel.send(shipStrings.errors.user_not_found.replace('{user}', args[1]));
             return;
         }
 
         let data: ShipData;
 
         if (target1.id === target2.id) {
-            data = { score: 100, scoreMessage: `You're a perfect match... for yourself!` };
+            data = { score: 100, scoreMessage: shipStrings.errors.self_match };
         }
         else {
             data = this.calcScore(target1, target2);
@@ -76,8 +82,8 @@ export default class Ship extends Command {
 
         const attachment = new Discord.MessageAttachment(Buffer.from(image), 'love.png');
         const embed = new Discord.MessageEmbed()
-            .setTitle(`${name1} and ${name2}`)
-            .addField(`Your love score is ${score}%`,
+            .setTitle(shipStrings.infos.title.replace('{user1}', name1).replace('{user2}', name2))
+            .addField(shipStrings.infos.score.replace('{score}', score.toString()),
                 scoreMessage.replace('{name}', name1).replace('{name2}', name2),
                 false)
             .setImage('attachment://love.png');
