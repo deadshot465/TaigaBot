@@ -1,23 +1,42 @@
 ﻿[
   {
     "keyword": "taiga",
-    "messages": [
-      "Taiga? Yea, that's me.",
-      "What the actual fuck...",
-      "Fine!",
-      "I don't have time for this.",
-      "Stop pinging me! <:TaigaPing:702686688589381732>",
-      "Not my problem.",
-      "Back off!",
-      "It's my Keitaro time right now so shut up.",
-      "Pffffft.",
-      "Tch.",
-      "Ugh... <:TaigaAnnoyed:702646568146436187>",
-      "Nice try. Didn't work.",
-      "What's up, amateur?",
-      "YOU'RE HOPELESS.",
-      "Lunch time."
-    ],
+    "messages": {
+      "en": [
+        "Taiga? Yea, that's me.",
+        "What the actual fuck...",
+        "Fine!",
+        "I don't have time for this.",
+        "Stop pinging me! <:TaigaPing:702686688589381732>",
+        "Not my problem.",
+        "Back off!",
+        "It's my Keitaro time right now so shut up.",
+        "Pffffft.",
+        "Tch.",
+        "Ugh... <:TaigaAnnoyed:702646568146436187>",
+        "Nice try. Didn't work.",
+        "What's up, amateur?",
+        "YOU'RE HOPELESS.",
+        "Lunch time."
+      ],
+      "jp": [
+        "たいが？俺様に何の用だ。",
+        "馬鹿なことを言うな！",
+        "いいだろう。",
+        "こんなことをする時間がない！",
+        "ピングやめとけ、しつこい！ <:TaigaPing:702686688589381732>",
+        "俺の問題じゃない。",
+        "出ていけ！",
+        "今は俺の大切な慶太郎時間だ。邪魔するな！",
+        "ははははは！",
+        "ちぇー",
+        "うぁ <:TaigaAnnoyed:702646568146436187>",
+        "よく頑張ったな。無理だけど。",
+        "どうした、初心者？",
+        "てめぇにはもう絶望しか見えない。",
+        "昼ご飯の時間だ！"
+      ]
+    },
     "reactions": [
       "699702364755460166",
       "699711760243884153",
@@ -47,11 +66,18 @@
   },
   {
     "keyword": "keitaro",
-    "messages": [
-      "What's your problem with my boyfriend?",
-      "Stop fooling around and come to me.",
-      "I really hope we can live together."
-    ],
+    "messages": {
+      "en": [
+        "What's your problem with my boyfriend?",
+        "Stop fooling around and come to me.",
+        "I really hope we can live together."
+      ],
+      "jp": [
+        "俺の彼氏に何の用だ？",
+        "つまらんことをやめろ。早く俺の傍に来て。",
+        "早く慶太郎と同棲したい。"
+      ]
+    },
     "reactions": [
       "699702364755460166",
       "699711760243884153",
@@ -84,9 +110,14 @@
   },
   {
     "keyword": "natsumi",
-    "messages": [
-      "<:TaigaSmug:702210822310723614> I'm still better than him 'cause I'm the best!"
-    ],
+    "messages": {
+      "en": [
+        "<:TaigaSmug:702210822310723614> I'm still better than him 'cause I'm the best!"
+      ],
+      "jp": [
+        "<:TaigaSmug:702210822310723614> 俺と夏海ってどっちかというと絶対俺の方がよっぽとすごいだ！"
+      ]
+    },
     "reactions": [
       "🏊‍♂️",
       "🧹",
@@ -98,10 +129,16 @@
   },
   {
     "keyword": "hunter",
-    "messages": [
-      "<:KachiSad:701226059726585866> I felt him. I'd be baffled if someone told me to stop handcrafting. I mean how else could I make a bracelet?",
-      "You're just like Keitaro. You really need to learn how to say no."
-    ],
+    "messages": {
+      "en": [
+        "<:KachiSad:701226059726585866> I felt him. I'd be baffled if someone told me to stop handcrafting. I mean how else could I make a bracelet?",
+        "You're just like Keitaro. You really need to learn how to say no."
+      ],
+      "jp": [
+        "<:KachiSad:701226059726585866> わかる！もし誰が俺に俺の好きなことをやめろって言ったら、俺は絶対に悔しいと思う。ブレスレットも作れなくなる。",
+        "お前はやはりちょっと慶太郎に似てるんだ。嫌ならちゃんと嫌って言え。"
+      ]
+    },
     "reactions": [
       "✏️",
       "🖍️",
@@ -115,13 +152,22 @@
   },
   {
     "keyword": "yoichi",
-    "messages": [
-      "<:TaigaSmug:702210822310723614> *Not my type.*",
-      "You stink.",
-      "Do I really have to drag you to the bathroom to make you take a bath?",
-      "That collor is ridiculous. Thankfully I have a better present for Keitaro in my route.",
-      "I don't think Hiro will easily go out with you even though Keitaro is already mine."
-    ],
+    "messages": {
+      "en": [
+        "<:TaigaSmug:702210822310723614> *Not my type.*",
+        "You stink.",
+        "Do I really have to drag you to the bathroom to make you take a bath?",
+        "That collar is ridiculous. Thankfully I have a better present for Keitaro in my route.",
+        "I don't think Hiro will easily go out with you even though Keitaro is already mine."
+      ],
+      "jp": [
+        "<:TaigaSmug:702210822310723614> *俺のタイプじゃねぇ。*",
+        "クサイ！",
+        "お風呂に連れて行かない限り、てめぇはシャワーしねぇの？",
+        "あの首輪はダサすぎ！せめて俺が用意した慶太郎のプレゼントは遥かによかった！",
+        "確かに今慶太郎は俺の彼氏だけど、簡単に広と付き合えるとは思わないでよ。"
+      ]
+    },
     "reactions": [
       "🐺",
       "🐕",
@@ -144,9 +190,14 @@
   },
   {
     "keyword": "yoshi",
-    "messages": [
-      "<:TaigaAngry:699705315519889479> Stop sticking your nose where it doesn't belong!"
-    ],
+    "messages": {
+      "en": [
+        "<:TaigaAngry:699705315519889479> Stop sticking your nose where it doesn't belong!"
+      ],
+      "jp": [
+        "<:TaigaAngry:699705315519889479> 他人のプライベートに手を出すな！"
+      ]
+    },
     "reactions": [
       "699710154861445172",
       "701105694761418774",
@@ -165,9 +216,14 @@
   },
   {
     "keyword": "yuri",
-    "messages": [
-      "<:TaigaAck2:700006264507465778> Get away from us! Although you're not wrong at all..."
-    ],
+    "messages": {
+      "en": [
+        "<:TaigaAck2:700006264507465778> Get away from us! Although you're not wrong at all..."
+      ],
+      "jp": [
+        "<:TaigaAck2:700006264507465778> 近づいてくるな！まあ、お前は確かに悪くなかったけど…"
+      ]
+    },
     "reactions": [
       "699710154861445172",
       "701105694761418774",
@@ -184,9 +240,14 @@
   },
   {
     "keyword": "goro",
-    "messages": [
-      "So when are you going to confess to Yoshi?"
-    ],
+    "messages": {
+      "en": [
+        "So when are you going to confess to Yoshi?"
+      ],
+      "jp": [
+        "いつヨシに告白するの？"
+      ]
+    },
     "reactions": [
       "700006264507465778",
       "700006812673638500",
@@ -198,11 +259,18 @@
   },
   {
     "keyword": "eduard",
-    "messages": [
-      "Your sassiness is killing me, Eduard.",
-      "Where is the wax your promised me?",
-      "I don't know which is crazier, his cheesy talk or his sassiness..."
-    ],
+    "messages": {
+      "en": [
+        "Your sassiness is killing me, Eduard.",
+        "Where is the wax your promised me?",
+        "I don't know which is crazier, his cheesy talk or his sassiness..."
+      ],
+      "jp": [
+        "その生意気な口は本当に我慢できねぇ、俺は。",
+        "俺のワックスはどこだ？",
+        "本当はどっちの方がもっとやばいのかよくわからん。彼の生意気か、それともあの甘い過ぎた言い方か…"
+      ]
+    },
     "reactions": [
       "701105694761418774",
       "699705315519889479",
@@ -219,9 +287,14 @@
   },
   {
     "keyword": "lee",
-    "messages": [
-      "Next time you talk, at least bring me a dictionary, Lee."
-    ],
+    "messages": {
+      "en": [
+        "Next time you talk, at least bring me a dictionary, Lee."
+      ],
+      "jp": [
+        "今度何を言う前に、せめて辞書を貸してくれ。"
+      ]
+    },
     "reactions": [
       "📚",
       "💻",
@@ -232,9 +305,14 @@
   },
   {
     "keyword": "seto",
-    "messages": [
-      "No thanks. I don't really play PnesP games."
-    ],
+    "messages": {
+      "en": [
+        "No thanks. I don't really play PnesP games."
+      ],
+      "jp": [
+        "遠慮するわ。ゲームやっていないし。"
+      ]
+    },
     "reactions": [
       "💻",
       "🐈",
@@ -248,9 +326,14 @@
   },
   {
     "keyword": "felix",
-    "messages": [
-      "Ri$h"
-    ],
+    "messages": {
+      "en": [
+        "Ri$h"
+      ],
+      "jp": [
+        "お金持ちじゃん。"
+      ]
+    },
     "reactions": [
       "🦊",
       "💲",
@@ -263,17 +346,26 @@
   },
   {
     "keyword": "yuki",
-    "messages": [
-      "KEEP THAT DAMN DOG AWAY FROM ME!!!"
-    ],
+    "messages": {
+      "en": [
+        "KEEP THAT DAMN DOG AWAY FROM ME!!!"
+      ],
+      "jp": [
+        "あの化け物と近づいてくるな！！！"
+      ]
+    },
     "reactions": [
       "🐕"
     ]
   },
   {
     "keyword": "kieran",
-    "messages": [
-    ],
+    "messages": {
+      "en": [
+      ],
+      "jp": [
+      ]
+    },
     "reactions": [
       "🦁",
       "♌",
