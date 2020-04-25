@@ -39,9 +39,13 @@ export default class Route extends Command implements ICharacterRouter {
         const routeStrings = (config.lang === 'en') ? enStrings.texts.route : jpStrings.texts.route;
         const character = this.getRoute();
 
+        let ending = this.getEnding(message);
+        if (character.name === 'Hiro Akiba (Mature)') {
+            ending = (config.lang === 'en') ? 'Perfect' : 'パーフェクト';
+        }
         const title = routeStrings.infos.next
             .replace('{name}', character.name)
-            .replace('{ending}', this.getEnding(message));
+            .replace('{ending}', ending);
 
         const footer = routeStrings.infos.footer
             .replace('{firstName}', this.getFirstName(character.name));
