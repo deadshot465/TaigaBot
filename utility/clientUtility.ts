@@ -100,8 +100,9 @@ export default class ClientUtility {
             else {
                 for (const target of randomMessages) {
                     if (message.content.includes(target.keyword) &&
-                        target.messages.length > 0) {
-                        message.channel.send(target.messages[getRandomInt(0, target.messages.length)]);
+                        (target.messages.en.length > 0 || target.messages.jp.length > 0)) {
+                        const targetMessage = (config.lang === 'en') ? target.messages.en : target.messages.jp;
+                        message.channel.send(targetMessage[getRandomInt(0, targetMessage.length)]);
                         break;
                     }
                 }
@@ -153,8 +154,11 @@ export default class ClientUtility {
         if (hitMiss) {
             if (message.mentions.users.get('697727604366639136')) {
                 const msgs = randomMessages.find(val => val.keyword === 'taiga');
-                if (msgs)
-                    message.reply(msgs.messages[getRandomInt(0, msgs.messages.length)]);
+                const config: IMemberConfig = MEMBER_CONFIG.find(config => config.userId === message.author.id)!;
+                if (msgs) {
+                    const responses = (config.lang === 'en') ? msgs.messages.en : msgs.messages.jp;
+                    message.reply(responses[getRandomInt(0, responses.length)]);
+                }
             }
         }
     }
