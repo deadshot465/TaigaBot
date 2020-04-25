@@ -1,4 +1,4 @@
-// Copyright(C) 2020 Tetsuki Syu
+Ôªø// Copyright(C) 2020 Tetsuki Syu
 // See bot.ts for the full notice.
 
 import * as Discord from 'discord.js';
@@ -41,7 +41,7 @@ export default class Route extends Command implements ICharacterRouter {
 
         let ending = this.getEnding(message);
         if (character.name === 'Hiro Akiba (Mature)') {
-            ending = (config.lang === 'en') ? 'Perfect' : 'ÉpÅ[ÉtÉFÉNÉg';
+            ending = (config.lang === 'en') ? 'Perfect' : '„Éë„Éº„Éï„Çß„ÇØ„Éà';
         }
         const title = routeStrings.infos.next
             .replace('{name}', character.name)
