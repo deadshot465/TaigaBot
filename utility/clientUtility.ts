@@ -43,11 +43,11 @@ const RHAKON_REACTIONS = [
 ];
 
 const MAGIC_REACTIONS = [
-    `You're the best!!! <:TaigaHappy:586763559434977293>`
+    `You're the best!!! <:TaigaHappy:703785346621505537>`
 ];
 
 const BRANDON_REACTIONS = [
-    `Thank you for making a server for me! <:TaigaHappy:586763559434977293> I totally have no idea how this Dicksword works.`,
+    `Thank you for making a server for me! <:TaigaHappy:703785346621505537> I totally have no idea how this Dicksword works.`,
     `Could you let me top Keitaro sometimes? <:TaigaAnnoyed:702646568146436187>`,
     `Only the best like myself can be my sidekicks in this server.`,
     `I will kick out anyone who threatens Keitaro, like Hiro maybe.`,
